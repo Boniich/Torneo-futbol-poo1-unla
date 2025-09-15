@@ -49,11 +49,13 @@ public class Jugador extends Persona {
 	public void setNumeroCamiseta(int numeroCamiseta) {
 		this.numeroCamiseta = numeroCamiseta;
 	}
-	//toString
+
 	@Override
 	public String toString() {
-		return "Jugador [estatura=" + estatura + ", peso=" + peso + ", posicion=" + posicion + ", numeroCamiseta="
-				+ numeroCamiseta + "]";
+		return "Jugador [idJugador=" + idJugador + ", estatura=" + estatura + ", peso=" + peso + ", posicion="
+				+ posicion + ", numeroCamiseta=" + numeroCamiseta + "]";
 	}
+
+
 
 }

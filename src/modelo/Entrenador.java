@@ -23,11 +23,9 @@ public class Entrenador extends Persona{
 	public void setEstrategiaFavorita(String estrategiaFavorita) {
 		this.estrategiaFavorita = estrategiaFavorita;
 	}
-	//toString
+
 	@Override
 	public String toString() {
-		return "Entrenador [estrategiaFavorita=" + estrategiaFavorita + "]";
+		return "Entrenador [idEntrenador=" + idEntrenador + ", estrategiaFavorita=" + estrategiaFavorita + "]";
 	}
-	
-
 }
