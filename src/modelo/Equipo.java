@@ -57,8 +57,8 @@ public class Equipo {
 		return "Equipo [idEquipo=" + idEquipo 
 				+ ", codigo=" + codigo 
 				+ ", nombre=" + nombre 
-				//+ ", jugadores= "+ jugadores
-				//+ ", entrenador= " + entrenador
+				+ ", jugadores= "+ jugadores
+				+ ", entrenador= " + entrenador
 				+ "]";
 	}
 	
