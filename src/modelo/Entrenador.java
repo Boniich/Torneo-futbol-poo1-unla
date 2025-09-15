@@ -3,18 +3,18 @@ package modelo;
 import java.time.LocalDate;
 
 public class Entrenador extends Persona{
-	private int idEntrenador;
+	private int idEntrenadorr;
 	private String estrategiaFavorita;
 	//constructor
 	public Entrenador(int idEntrenador, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
 			String estrategiaFavorita) {
 		super(nombre, apellido, dni, fechaNacimiento);
-		this.idEntrenador = idEntrenador;
+		this.idEntrenadorr = idEntrenador;
 		this.estrategiaFavorita = estrategiaFavorita;
 	}
 	
 	public int getIdEntrenador() {
-		return idEntrenador;
+		return idEntrenadorr;
 	}
 	//getters&setters
 	public String getEstrategiaFavorita() {
@@ -26,6 +26,6 @@ public class Entrenador extends Persona{
 
 	@Override
 	public String toString() {
-		return "Entrenador [idEntrenador=" + idEntrenador + ", estrategiaFavorita=" + estrategiaFavorita + "]";
+		return "Entrenador [idEntrenador=" + idEntrenadorr + ", estrategiaFavorita=" + estrategiaFavorita + "]";
 	}
 }
