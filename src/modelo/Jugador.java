@@ -1,21 +1,29 @@
-package model;
+package modelo;
 
 import java.time.LocalDate;
 
 public class Jugador extends Persona {
+	private int idJugador;
 	private double estatura;
 	private double peso;
 	private String posicion;
 	private int numeroCamiseta;
 	//constructor
-	public Jugador(int idPersona, String apellido, String nombre, String dni, LocalDate fechaNacimiento,
+	public Jugador(int idJugador, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
 			double estatura, double peso, String posicion, int numeroCamiseta) {
-		super(idPersona, apellido, nombre, dni, fechaNacimiento);
+		super(nombre,apellido,dni, fechaNacimiento);
+		this.idJugador = idJugador;
 		this.estatura = estatura;
 		this.peso = peso;
 		this.posicion = posicion;
 		this.numeroCamiseta = numeroCamiseta;
 	}
+	
+
+	public int getIdJugador() {
+		return idJugador;
+	}
+
 	//getters&setters
 	public double getEstatura() {
 		return estatura;
