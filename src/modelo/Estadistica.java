@@ -50,7 +50,7 @@ public class Estadistica {
 				+ ", goles=" + goles 
 				+ ", asistencias=" + asistencias 
 				+ ", minutosJugados=" + minutosJugados 
-				+", jugador=" + jugador.getNombre()+" "+jugador.getApellido()
+				+", jugador=" + jugador
 				+ "]";
 	}
 	
