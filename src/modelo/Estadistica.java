@@ -50,8 +50,7 @@ public class Estadistica {
 				+ ", goles=" + goles 
 				+ ", asistencias=" + asistencias 
 				+ ", minutosJugados=" + minutosJugados 
-				//falta la clase Jugador
-				//+", jugador=" + jugador
+				+", jugador=" + jugador
 				+ "]";
 	}
 	
