@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,18 @@ public class Sistema {
 	}
 
 	// --- Casos de uso ---
+	
+	public boolean agregarJugador(String nombre, String apellido, long dni, LocalDate fechaNacimiento,
+			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
+		
+		if(traerJugador(dni) != null) throw new Exception("Error: El jugador ya existe!");
+		
+		int ultimoId = 1;
+		if(jugadores.size() > 0) ultimoId = jugadores.get(jugadores.size()-1).getIdJugador()+1;
+		return jugadores.add(new Jugador(ultimoId,nombre,apellido,dni,fechaNacimiento,estatura,peso,
+										posicion,numeroCamiseta));
+		
+	}
 
 	public Jugador traerJugador(long dni) {
 		Jugador jugador = null;
