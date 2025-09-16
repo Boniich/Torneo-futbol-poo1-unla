@@ -8,12 +8,33 @@ public class Sistema {
 	private List<Jugador> jugadores;
 	private List<Equipo> equipos;
 	private List<Torneo> torneos;
-	
+
 	public Sistema() {
 		this.entrenadores = new ArrayList<Entrenador>();
 		this.jugadores = new ArrayList<Jugador>();
 		this.equipos = new ArrayList<Equipo>();
 		this.torneos = new ArrayList<Torneo>();
+	}
+
+	// --- Casos de uso ---
+
+	public Jugador traerJugador(long dni) {
+		Jugador jugador = null;
+		int index = 0;
+		boolean encontrado = false;
+
+		if (!jugadores.isEmpty()) {
+			while (index < jugadores.size() && !encontrado) {
+				if (jugadores.get(index).getDni() == dni) {
+					encontrado = true;
+					jugador = jugadores.get(index);
+				}
+
+				index++;
+			}
+		}
+
+		return jugador;
 	}
 
 	public List<Entrenador> getEntrenadores() {
@@ -46,6 +67,6 @@ public class Sistema {
 
 	public void setTorneos(List<Torneo> torneos) {
 		this.torneos = torneos;
-	}	
-	
+	}
+
 }
