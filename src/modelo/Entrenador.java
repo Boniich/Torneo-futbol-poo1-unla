@@ -7,7 +7,7 @@ public class Entrenador extends Persona{
 	private String estrategiaFavorita;
 	//constructor
 	public Entrenador(int idEntrenador, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
-			String estrategiaFavorita) {
+			String estrategiaFavorita) throws Exception {
 		super(nombre, apellido, dni, fechaNacimiento);
 		this.idEntrenador = idEntrenador;
 		this.estrategiaFavorita = estrategiaFavorita;

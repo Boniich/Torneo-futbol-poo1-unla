@@ -10,7 +10,7 @@ public class Jugador extends Persona {
 	private int numeroCamiseta;
 	//constructor
 	public Jugador(int idJugador, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
-			double estatura, double peso, String posicion, int numeroCamiseta) {
+			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
 		super(nombre,apellido,dni, fechaNacimiento);
 		this.idJugador = idJugador;
 		this.estatura = estatura;

@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public abstract class Persona {
 
@@ -9,23 +10,25 @@ public abstract class Persona {
 	private long dni;
 	private LocalDate fechaNacimiento;
 	
-	public Persona(String nombre, String apellido, long dni, LocalDate fechaNacimiento) {
-		this.nombre = nombre;
-		this.apellido = apellido;
+	public Persona(String nombre, String apellido, long dni, LocalDate fechaNacimiento) throws Exception {
+		this.setNombre(nombre);
+		this.setApellido(apellido);
 		this.dni = dni;
-		this.fechaNacimiento = fechaNacimiento;
+		this.setFechaNacimiento(fechaNacimiento);
 	}
 	
 	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws Exception {
+		if(nombre.isEmpty()) throw new Exception("Error:El nombre no puede estar vacio!");
 		this.nombre = nombre;
 	}
 	public String getApellido() {
 		return apellido;
 	}
-	public void setApellido(String apellido) {
+	public void setApellido(String apellido) throws Exception {
+		if(apellido.isEmpty()) throw new Exception("Error:El apellido no puede estar vacio!");
 		this.apellido = apellido;
 	}
 	public long getDni() {
@@ -37,7 +40,10 @@ public abstract class Persona {
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) throws Exception {
+		if(fechaNacimiento == null) throw new Exception("Error: la fecha de nacimiento no puede estar vacia!");
+		if((LocalDate.now().getYear() - fechaNacimiento.getYear()) < 18) 
+			throw new Exception("Error: La persona es menor edad!");
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
