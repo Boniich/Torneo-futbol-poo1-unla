@@ -38,12 +38,8 @@ public class Equipo {
 	public List<Jugador> getJugadores(){
 		return jugadores;
 	}
-	public void agregarJugador(Jugador jugador) {
-        if (jugador.esMayorDeEdad()) {             
+	public void agregarJugador(Jugador jugador) {         
             jugadores.add(jugador);
-        } else {
-            throw new IllegalArgumentException("El jugador debe ser mayor de edad");
-        }
     }
 	public Entrenador getEntrenador() {
 		return entrenador;

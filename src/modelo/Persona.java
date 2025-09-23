@@ -15,12 +15,6 @@ public abstract class Persona {
 		this.dni = dni;
 		this.setFechaNacimiento(fechaNacimiento);
 	}
-	public boolean esMayorDeEdad() {
-        LocalDate hoy = LocalDate.now();
-        LocalDate fechaMayorEdad = fechaNacimiento.plusYears(18);
-        return !hoy.isBefore(fechaMayorEdad); 
-    }
-	
 	public String getNombre() {
 		return nombre;
 	}
