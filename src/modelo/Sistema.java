@@ -30,6 +30,38 @@ public class Sistema {
 										posicion,numeroCamiseta));
 		
 	}
+	public boolean agregarEntrenador(String nombre, String apellido, long dni,LocalDate fechaNacimiento, String estrategiaFavorita)
+			throws Exception{
+		
+		if(traerEntrenador(dni) != null) throw new Exception("Error: El entrenador ya existe!");
+		
+		if (estrategiaFavorita == null || estrategiaFavorita.trim().isEmpty()) {
+			throw new Exception("Error: El entrenador no tiene estrategia !");
+        }
+		
+		int ultimoId = 1;
+		if(entrenadores.size() > 0) ultimoId = entrenadores.get(entrenadores.size()-1).getIdEntrenador()+1;
+		return entrenadores.add(new Entrenador(ultimoId,nombre,apellido,dni,fechaNacimiento,estrategiaFavorita));
+		
+	}
+	
+	public Entrenador traerEntrenador(long dni) {
+		Entrenador entrenador = null;
+		int index = 0;
+		boolean encontrado = false;
+
+		if (!entrenadores.isEmpty()) {
+			while (index < entrenadores.size() && !encontrado) {
+				if (entrenadores.get(index).getDni() == dni) {
+					encontrado = true;
+					entrenador = entrenadores.get(index);
+				}
+
+				index++;
+			}
+		}
+		 return entrenador;
+	}
 
 	public Jugador traerJugador(long dni) {
 		Jugador jugador = null;
