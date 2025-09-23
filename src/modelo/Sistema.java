@@ -35,10 +35,6 @@ public class Sistema {
 		
 		if(traerEntrenador(dni) != null) throw new Exception("Error: El entrenador ya existe!");
 		
-		if (estrategiaFavorita == null || estrategiaFavorita.trim().isEmpty()) {
-			throw new Exception("Error: El entrenador no tiene estrategia !");
-        }
-		
 		int ultimoId = 1;
 		if(entrenadores.size() > 0) ultimoId = entrenadores.get(entrenadores.size()-1).getIdEntrenador()+1;
 		return entrenadores.add(new Entrenador(ultimoId,nombre,apellido,dni,fechaNacimiento,estrategiaFavorita));

@@ -10,7 +10,7 @@ public class Entrenador extends Persona{
 			String estrategiaFavorita) throws Exception {
 		super(nombre, apellido, dni, fechaNacimiento);
 		this.idEntrenador = idEntrenador;
-		this.estrategiaFavorita = estrategiaFavorita;
+		this.setEstrategiaFavorita(estrategiaFavorita);
 	}
 	
 	public int getIdEntrenador() {
@@ -20,7 +20,10 @@ public class Entrenador extends Persona{
 	public String getEstrategiaFavorita() {
 		return estrategiaFavorita;
 	}
-	public void setEstrategiaFavorita(String estrategiaFavorita) {
+	public void setEstrategiaFavorita(String estrategiaFavorita)throws Exception {
+		if (estrategiaFavorita == null || estrategiaFavorita.trim().isEmpty()) {
+			throw new Exception("Error: El entrenador no tiene estrategia !");
+        }
 		this.estrategiaFavorita = estrategiaFavorita;
 	}
 
