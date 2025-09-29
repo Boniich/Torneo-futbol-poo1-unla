@@ -15,13 +15,13 @@ public class Torneo {
 
     
 
-    public Torneo(int idTorneo, String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin) {
+    public Torneo(int idTorneo, String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin) throws Exception {
         this.idTorneo = idTorneo;
-        this.nombre = nombre;
-        this.temporada = temporada;
+        this.setNombre(nombre);
+        this.setTemporada(temporada);
         this.equiposParticipantes = new ArrayList<>();
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.setFechaInicio(fechaInicio);
+        this.setFechaFin(fechaFin);
         this.partidos = new ArrayList<>();
     }
     public void agregarEquipo(Equipo equipo) { 
@@ -45,13 +45,15 @@ public class Torneo {
     public String getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) throws Exception {
+    	if(nombre == null || nombre.isEmpty()) throw new Exception("Error: El nombre no puede estar vacio!");
         this.nombre = nombre;
     }
     public String getTemporada() {
         return temporada;
     }
-    public void setTemporada(String temporada) {
+    public void setTemporada(String temporada) throws Exception {
+    	if(temporada == null || temporada.isEmpty()) throw new Exception("Error: La temporada no puede estar vacio!");
         this.temporada = temporada;
     }
     public List<Equipo> getEquiposParticipantes() {
@@ -63,14 +65,20 @@ public class Torneo {
     public LocalDate getFechaInicio() {
         return fechaInicio;
     }
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) throws Exception {
+    	if(fechaInicio == null) throw new Exception("Error: La fecha no puede ser nula");
         this.fechaInicio = fechaInicio;
     }
     public LocalDate getFechaFin() {
         return fechaFin;
     }
-    public void setFechaFin(LocalDate fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaFin(LocalDate fechaFin) throws Exception {
+    	if(fechaFin == null) throw new Exception("Error: La fecha de fin ser nula");
+    	if(fechaInicio.equals(fechaFin)) throw new Exception("Error: Las fechas de inicio y fin no pueden ser iguales!");
+    	if(fechaInicio.isAfter(fechaFin)) throw new Exception("Error: La fecha de inicio no puede ser posterior a la de fin!");
+    	if(fechaFin.isBefore(fechaInicio)) throw new Exception("Error: La fecha de fin no puede ser anterior a la de inicio!");
+    	this.fechaFin = fechaFin;
+        
     }
     public List<Partido> getPartidos() {
         return partidos;
