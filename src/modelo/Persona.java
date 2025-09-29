@@ -12,7 +12,7 @@ public abstract class Persona {
 	public Persona(String nombre, String apellido, long dni, LocalDate fechaNacimiento) throws Exception {
 		this.setNombre(nombre);
 		this.setApellido(apellido);
-		this.dni = dni;
+		this.setDni(dni);
 		this.setFechaNacimiento(fechaNacimiento);
 	}
 	public String getNombre() {
@@ -32,7 +32,11 @@ public abstract class Persona {
 	public long getDni() {
 		return dni;
 	}
-	public void setDni(long dni) {
+	public void setDni(long dni) throws Exception {
+		
+		int cantidadDigitos = String.valueOf(dni).length();
+		if(cantidadDigitos < 7 || cantidadDigitos > 8) throw new Exception("Error: El dni es invalido");
+		
 		this.dni = dni;
 	}
 	public LocalDate getFechaNacimiento() {
