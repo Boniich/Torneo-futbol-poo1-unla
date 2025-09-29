@@ -85,6 +85,24 @@ public class Sistema {
 		return torneos.add(new Torneo(id,nombre,temporada,fechaInicio,fechaFin));
 	}
 	
+	public Torneo traerTorneo(int id) {
+		Torneo torneoBuscado = null;
+		int index = 0;
+		boolean encontrado = false;
+		if (!torneos.isEmpty()) {
+			while (index < torneos.size() && !encontrado) {
+				if (torneos.get(index).getIdTorneo() == id) {
+					encontrado = true;
+					torneoBuscado = torneos.get(index);
+				}
+
+				index++;
+			}
+		}
+
+		return torneoBuscado;
+	}
+	
 
 	public List<Entrenador> getEntrenadores() {
 		return entrenadores;
