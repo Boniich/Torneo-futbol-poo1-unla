@@ -15,13 +15,13 @@ public class Partido {
     private List<Estadistica> estadisticas;
 
     public Partido(int idPartido, LocalDate fecha, LocalTime hora, Equipo equipoLocal, Equipo equipoVisita,
-            String estadio, Estadistica estadistica) {
+            String estadio) throws Exception {
         this.idPartido = idPartido;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.equipoLocal = equipoLocal;
-        this.equipoVisita = equipoVisita;
-        this.estadio = estadio;
+        this.setFecha(fecha);
+        this.setHora(hora);
+        this.setEquipoLocal(equipoLocal);
+        this.setEquipoVisita(equipoVisita);
+        this.setEstadio(estadio);
         this.estadisticas = new ArrayList<>();
     }
 
@@ -39,31 +39,37 @@ public class Partido {
     public LocalDate getFecha() {
         return fecha;
     }
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(LocalDate fecha) throws Exception {
+    	if(fecha == null) throw new Exception("Error: La fecha no puede estar nula!");
         this.fecha = fecha;
     }
     public LocalTime getHora() {
         return hora;
     }
-    public void setHora(LocalTime hora) {
+    public void setHora(LocalTime hora) throws Exception {
+    	if(hora == null) throw new Exception("Error: La hora no puede estar nula!");
         this.hora = hora;
     }
     public Equipo getEquipoLocal() {
         return equipoLocal;
     }
-    public void setEquipoLocal(Equipo equipoLocal) {
+    public void setEquipoLocal(Equipo equipoLocal) throws Exception {
+    	if(equipoLocal == null) throw new Exception("Error: El equipo local no puede ser nulo!");
         this.equipoLocal = equipoLocal;
     }
     public Equipo getEquipoVisita() {
         return equipoVisita;
     }
-    public void setEquipoVisita(Equipo equipoVisita) {
+    public void setEquipoVisita(Equipo equipoVisita) throws Exception {
+    	if(equipoVisita == null) throw new Exception("Error: El equipo visitante no puede ser nulo!");
+    	if(equipoVisita.equals(equipoLocal)) throw new Exception("Error: El equipo local y visitante son el mismo!");
         this.equipoVisita = equipoVisita;
     }
     public String getEstadio() {
         return estadio;
     }
-    public void setEstadio(String estadio) {
+    public void setEstadio(String estadio) throws Exception {
+    	if(estadio ==null || estadio.isEmpty()) throw new Exception("Error: El estadio no puede estar null o vacio!");
         this.estadio = estadio;
     }
 
