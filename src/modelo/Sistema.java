@@ -77,6 +77,14 @@ public class Sistema {
 
 		return jugador;
 	}
+	
+	
+	public boolean agregarTorneo(String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin) throws Exception {
+		int id = 1;
+		if(!torneos.isEmpty()) id = torneos.get(torneos.size()-1).getIdTorneo()+1;
+		return torneos.add(new Torneo(id,nombre,temporada,fechaInicio,fechaFin));
+	}
+	
 
 	public List<Entrenador> getEntrenadores() {
 		return entrenadores;
