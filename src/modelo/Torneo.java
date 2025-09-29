@@ -76,7 +76,6 @@ public class Torneo {
     	if(fechaFin == null) throw new Exception("Error: La fecha de fin ser nula");
     	if(fechaInicio.equals(fechaFin)) throw new Exception("Error: Las fechas de inicio y fin no pueden ser iguales!");
     	if(fechaInicio.isAfter(fechaFin)) throw new Exception("Error: La fecha de inicio no puede ser posterior a la de fin!");
-    	if(fechaFin.isBefore(fechaInicio)) throw new Exception("Error: La fecha de fin no puede ser anterior a la de inicio!");
     	this.fechaFin = fechaFin;
         
     }
@@ -91,7 +90,7 @@ public class Torneo {
     public String toString() {
         return "Torneo [idTorneo=" + idTorneo + ", nombre=" + nombre + ", temporada=" + temporada
                 + ", equiposParticipantes=" + equiposParticipantes + ", fechaInicio=" + fechaInicio + ", fechaFin="
-                + fechaFin + ", partidos=" + partidos + "]";
+                + fechaFin + ", partidos=" + partidos + "]\n";
     }
 
     
