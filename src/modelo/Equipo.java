@@ -20,6 +20,21 @@ public class Equipo {
 		this.jugadores = new ArrayList<>();
 	}
 	
+	
+	public Jugador traerJugador(Jugador jugador) {
+		Jugador jugadorBuscado = null;
+		int index = 0;
+		boolean encontrado = false;
+		while(index < jugadores.size() && !encontrado) {
+			if(jugadores.get(index).equals(jugadorBuscado)) {
+				jugadorBuscado = jugadores.get(index);
+				encontrado = true;
+			}
+			index++;
+		}
+		return jugadorBuscado;
+	}
+	
 	public int getIdEquipo(){
 		return idEquipo;
 	}
