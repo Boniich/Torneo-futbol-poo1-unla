@@ -21,6 +21,12 @@ public class Equipo {
 	}
 	
 	
+	public boolean agregarJugador(Jugador jugador) throws Exception {
+		if(traerJugador(jugador) != null) throw new Exception("Error: El jugador ya existe!");
+        return jugadores.add(jugador);
+	}
+	
+	
 	public Jugador traerJugador(Jugador jugador) {
 		Jugador jugadorBuscado = null;
 		int index = 0;
@@ -53,9 +59,7 @@ public class Equipo {
 	public List<Jugador> getJugadores(){
 		return jugadores;
 	}
-	public void agregarJugador(Jugador jugador) {         
-            jugadores.add(jugador);
-    }
+
 	public Entrenador getEntrenador() {
 		return entrenador;
 	}
