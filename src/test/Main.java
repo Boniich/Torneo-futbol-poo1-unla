@@ -45,7 +45,32 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		
+		try {
+			System.out.println("Test 4: Agregamos torneos");
+			sistema.agregarTorneo("Torneo corto", "Invierno", LocalDate.of(2025, 5, 25),LocalDate.of(2025, 7, 2));
+			sistema.agregarTorneo("Torneo corto", "Primavera", LocalDate.of(2025, 9, 21),LocalDate.of(2025, 12, 21));
+			System.out.println(sistema.getTorneos());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
+		try {
+			System.out.println("Test 5: Intentamos agregar un torneo con la misma fecha de inicio y fin");
+			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 7, 25),LocalDate.of(2025, 7, 25));
+			System.out.println(sistema.getTorneos());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			System.out.println("Test 6: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
+			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 9, 25),LocalDate.of(2025, 7, 25));
+			System.out.println(sistema.getTorneos());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+
 
 	}
 
