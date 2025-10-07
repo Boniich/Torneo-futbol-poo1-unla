@@ -4,17 +4,29 @@ import java.time.LocalDate;
 
 public abstract class Persona {
 
-	private String nombre;
-	private String apellido;
-	private long dni;
-	private LocalDate fechaNacimiento;
+	protected int id;
+	protected String nombre;
+	protected String apellido;
+	protected long dni;
+	protected LocalDate fechaNacimiento;
 	
-	public Persona(String nombre, String apellido, long dni, LocalDate fechaNacimiento) throws Exception {
+	public Persona(int id,String nombre, String apellido, long dni, LocalDate fechaNacimiento) throws Exception {
+		this.id = id;
 		this.setNombre(nombre);
 		this.setApellido(apellido);
 		this.setDni(dni);
 		this.setFechaNacimiento(fechaNacimiento);
 	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -48,15 +60,12 @@ public abstract class Persona {
 			throw new Exception("Error: La persona es menor edad!");
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
+
 	@Override
 	public String toString() {
-		return "[nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento="
-				+ fechaNacimiento + "]";
+		return "[id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
+				+ ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
-	
-	
-	
-	
-	
-	
+
 }

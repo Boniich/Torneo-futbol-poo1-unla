@@ -3,28 +3,20 @@ package modelo;
 import java.time.LocalDate;
 
 public class Jugador extends Persona {
-	private int idJugador;
 	private double estatura;
 	private double peso;
 	private String posicion;
 	private int numeroCamiseta;
-	//constructor
-	public Jugador(int idJugador, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
+
+	public Jugador(int id,String apellido, String nombre, long dni, LocalDate fechaNacimiento,
 			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
-		super(nombre,apellido,dni, fechaNacimiento);
-		this.idJugador = idJugador;
+		super(id,nombre,apellido,dni, fechaNacimiento);
 		this.setEstatura(estatura);
 		this.setPeso(peso);
 		this.setPosicion(posicion);
 		this.setNumeroCamiseta(numeroCamiseta);
 	}
 	
-
-	public int getIdJugador() {
-		return idJugador;
-	}
-
-	//getters&setters
 	public double getEstatura() {
 		return estatura;
 	}
@@ -56,10 +48,10 @@ public class Jugador extends Persona {
 
 	@Override
 	public String toString() {
-		return "Jugador [idJugador=" + idJugador +" , "+ super.toString()+ ", estatura=" + estatura + ", peso=" + peso + ", posicion="
-				+ posicion + ", numeroCamiseta=" + numeroCamiseta + "]\n";
+		return "Jugador ["+super.toString()+" estatura=" + estatura + ", peso=" + peso + ", posicion=" + posicion + ", numeroCamiseta="
+				+ numeroCamiseta + "]\n";
 	}
 
-
+	
 
 }

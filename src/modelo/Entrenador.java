@@ -3,20 +3,14 @@ package modelo;
 import java.time.LocalDate;
 
 public class Entrenador extends Persona{
-	private int idEntrenador;
 	private String estrategiaFavorita;
 	//constructor
-	public Entrenador(int idEntrenador, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
+	public Entrenador(int id, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
 			String estrategiaFavorita) throws Exception {
-		super(nombre, apellido, dni, fechaNacimiento);
-		this.idEntrenador = idEntrenador;
+		super(id,nombre, apellido, dni, fechaNacimiento);
 		this.setEstrategiaFavorita(estrategiaFavorita);
 	}
 	
-	public int getIdEntrenador() {
-		return idEntrenador;
-	}
-	//getters&setters
 	public String getEstrategiaFavorita() {
 		return estrategiaFavorita;
 	}
@@ -29,6 +23,8 @@ public class Entrenador extends Persona{
 
 	@Override
 	public String toString() {
-		return "Entrenador [idEntrenador=" + idEntrenador + " , "+super.toString()+ ", estrategiaFavorita=" + estrategiaFavorita + "]\n";
+		return "Entrenador ["+super.toString()+ " estrategiaFavorita=" + estrategiaFavorita + "]\n";
 	}
+
+
 }
