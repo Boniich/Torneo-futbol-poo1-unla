@@ -106,9 +106,17 @@ public class Main {
         	System.out.println(e.getMessage());
         }
         
+        
+      /*  try {
+        	System.out.println("Test 8: Agregamos jugadores a los equipos");
+        	sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(11111111));
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+        }*/
+        
 
 		try {
-			System.out.println("Test 8: Agregamos torneos");
+			System.out.println("Test 9: Agregamos torneos");
 			sistema.agregarTorneo("Torneo 3 estrellas", "Invierno", LocalDate.of(2025, 5, 25), LocalDate.of(2025, 7, 2));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
@@ -116,7 +124,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 9: Intentamos agregar un torneo con la misma fecha de inicio y fin");
+			System.out.println("Test 10: Intentamos agregar un torneo con la misma fecha de inicio y fin");
 			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 7, 25), LocalDate.of(2025, 7, 25));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
@@ -124,7 +132,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 10: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
+			System.out.println("Test 11: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
 			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 9, 25), LocalDate.of(2025, 7, 25));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
