@@ -82,6 +82,60 @@ public class Sistema {
 		return torneoBuscado;
 	}
 	
+	
+	public void agregarEquipo(String nombre,String codigo,LocalDate fechaCreacion, Persona persona) throws Exception {
+		
+		if(persona == null) throw new Exception("Error: El entrenador no existe!");
+		if(!(persona instanceof Entrenador))  throw new Exception("Error: La persona no es un entrenador!");
+
+		//Tarea: Agregar if que contrala que un equipo no este repetido. lanzar excepcion
+		int id = 1;
+		if(!equipos.isEmpty()) id = equipos.get(equipos.size()-1).getIdEquipo()+1;
+		equipos.add(new Equipo(id,nombre,codigo,fechaCreacion,(Entrenador)persona));
+	}
+	
+	
+	public Equipo traerEquipo(int id) {
+		Equipo equipoBuscado = null;
+		int index = 0;
+		boolean encontrado = false;
+		if (!equipos.isEmpty()) {
+			while (index < equipos.size() && !encontrado) {
+				if (equipos.get(index).getIdEquipo() == id) {
+					encontrado = true;
+					equipoBuscado = equipos.get(index);
+				}
+
+				index++;
+			}
+		}
+
+		return equipoBuscado;
+	}
+	public Equipo traerEquipo(String codigo) {
+		Equipo equipoBuscado = null;
+		int index = 0;
+		boolean encontrado = false;
+		if (!equipos.isEmpty()) {
+			while (index < equipos.size() && !encontrado) {
+				if (equipos.get(index).getCodigo().equals(codigo.toUpperCase())) {
+					encontrado = true;
+					equipoBuscado = equipos.get(index);
+				}
+
+				index++;
+			}
+		}
+
+		return equipoBuscado;
+	}
+	public void eliminarEquipo(String codigo) throws Exception{
+		Equipo e= traerEquipo(codigo);
+		if (e == null)throw new Exception("Error: equipo no encontrado");
+		equipos.remove(e);
+	}
+	
+	
 	public List<Jugador> listarJugadores(){
 		List<Jugador> jugadores = new ArrayList<Jugador>();
 		
@@ -128,78 +182,5 @@ public class Sistema {
 	public void setTorneos(List<Torneo> torneos) {
 		this.torneos = torneos;
 	}
-	//-------------------------Equipo---------------------------------------------------------------------
-	/*public void agregarEquipo(  String nombre, long dniEntrenador) throws Exception {
-		int id = 1;
-		Entrenador entrenador= traerEntrenador(dniEntrenador);
-		if(entrenador==null)throw new Exception("Error: Entrenador inexistente");
-		String codigo= crearCodigo(nombre);
-		if(!equipos.isEmpty()){
-			id = equipos.get(equipos.size()-1).getIdEquipo()+1;
-		} 
-		 equipos.add(new Equipo(id,codigo,nombre,entrenador));
-	}*/
-	
-	public Equipo traerEquipo(int id) {
-		Equipo equipoBuscado = null;
-		int index = 0;
-		boolean encontrado = false;
-		if (!equipos.isEmpty()) {
-			while (index < equipos.size() && !encontrado) {
-				if (equipos.get(index).getIdEquipo() == id) {
-					encontrado = true;
-					equipoBuscado = equipos.get(index);
-				}
 
-				index++;
-			}
-		}
-
-		return equipoBuscado;
-	}
-	public Equipo traerEquipo(String codigo) {
-		Equipo equipoBuscado = null;
-		int index = 0;
-		boolean encontrado = false;
-		if (!equipos.isEmpty()) {
-			while (index < equipos.size() && !encontrado) {
-				if (equipos.get(index).getCodigo().equals(codigo.toUpperCase())) {
-					encontrado = true;
-					equipoBuscado = equipos.get(index);
-				}
-
-				index++;
-			}
-		}
-
-		return equipoBuscado;
-	}
-	public void eliminarEquipo(String codigo) throws Exception{
-		Equipo e= traerEquipo(codigo);
-		if (e == null)throw new Exception("Error: equipo no encontrado");
-		equipos.remove(e);
-	}
-	//falta editar
-	public String crearCodigo(String nombre){
-		String codigo=nombre.substring(0, 3).toUpperCase();
-		return codigo;
-
-	}
-	public boolean isCodigoExiste( String codigo){
-		int index = 0;
-		boolean encontrado = false;
-		if (!equipos.isEmpty()) {
-			while (index < equipos.size() && !encontrado) {
-				if (equipos.get(index).getCodigo().equals(codigo)) {
-					encontrado = true;
-				}
-
-				index++;
-			}
-		}
-		return encontrado;
-	}
-
-	
-//---------------------------FinEquipo--------------------------------------------------------------------
 }
