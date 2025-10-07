@@ -23,11 +23,30 @@ public class Equipo {
 		this.jugadores = new ArrayList<>();
 	}
 	
-	
+	//Debemos cambiar la referencia de Jugador jugador por Persona persona
+	//Debemos validar que el objeto pasado es de tipo Jugador
+	//Debemos validar que ese jugador no este en la lista
 	public void agregarJugador(Jugador jugador) throws Exception {
 		if(traerJugador(jugador.getDni()) != null) throw new Exception("Error: El jugador ya existe!");
+		//if(traerJugador(jugador) throw new Exception("Error: El jugador ya existe!");
+
         	jugadores.add(jugador);
 	}
+	
+	/*
+	public Jugador traerJugador(Jugador jugador) {
+		Jugador jugadorBuscado = null;
+		int index = 0;
+		boolean encontrado = false;
+		while(index < jugadores.size() && !encontrado) {
+			if(jugadores.get(index).equals(jugador)) {
+				jugadorBuscado = jugadores.get(index);
+				encontrado = true;
+			}
+			index++;
+		}
+		return jugadorBuscado;
+	}*/
 	
 	
 	public Jugador traerJugador(long dni) {
