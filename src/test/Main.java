@@ -40,7 +40,7 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		
-/*
+
 		//Intentamos agregar un jugador dos veces o con mismo dni
 		try {
 			System.out.println("Test 2: Intentamos agregar un jugador dos veces (mismo dni)");
@@ -61,6 +61,8 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		
+		
+		/*
 		try {
 			System.out.println("Test 4: Agregamos torneos");
 			sistema.agregarTorneo("Torneo corto", "Invierno", LocalDate.of(2025, 5, 25),LocalDate.of(2025, 7, 2));
