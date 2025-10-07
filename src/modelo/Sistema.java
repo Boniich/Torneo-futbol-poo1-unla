@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
-	private List<Entrenador> entrenadores;
-	private List<Jugador> jugadores;
+	private List<Persona> personas;
 	private List<Equipo> equipos;
 	private List<Torneo> torneos;
 
 	public Sistema() {
-		this.entrenadores = new ArrayList<Entrenador>();
-		this.jugadores = new ArrayList<Jugador>();
+		this.personas = new ArrayList<Persona>();
 		this.equipos = new ArrayList<Equipo>();
 		this.torneos = new ArrayList<Torneo>();
 	}
@@ -22,63 +20,44 @@ public class Sistema {
 	public boolean agregarJugador(String nombre, String apellido, long dni, LocalDate fechaNacimiento,
 			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
 		
-		if(traerJugador(dni) != null) throw new Exception("Error: El jugador ya existe!");
+		if(traerPersona(dni) != null) throw new Exception("Error: La persona ya existe en el sistema!");
 		
-		int ultimoId = 1;
-		if(jugadores.size() > 0) ultimoId = jugadores.get(jugadores.size()-1).getIdJugador()+1;
-		return jugadores.add(new Jugador(ultimoId,nombre,apellido,dni,fechaNacimiento,estatura,peso,
+		int id = 1;
+		if(personas.size() > 0) id  = personas.get(personas.size()-1).getId()+1;
+		return personas.add(new Jugador(id ,nombre,apellido,dni,fechaNacimiento,estatura,peso,
 										posicion,numeroCamiseta));
 		
 	}
 	public boolean agregarEntrenador(String nombre, String apellido, long dni,LocalDate fechaNacimiento, String estrategiaFavorita)
 			throws Exception{
 		
-		if(traerEntrenador(dni) != null) throw new Exception("Error: El entrenador ya existe!");
+		if(traerPersona(dni) != null) throw new Exception("Error: La persona ya existe en el sistema!");
 		
-		int ultimoId = 1;
-		if(entrenadores.size() > 0) ultimoId = entrenadores.get(entrenadores.size()-1).getIdEntrenador()+1;
-		return entrenadores.add(new Entrenador(ultimoId,nombre,apellido,dni,fechaNacimiento,estrategiaFavorita));
+		int id = 1;
+		if(personas.size() > 0) id = personas.get(personas.size()-1).getId()+1;
+		return personas.add(new Entrenador(id,nombre,apellido,dni,fechaNacimiento,estrategiaFavorita));
 		
 	}
 	
-	public Entrenador traerEntrenador(long dni) {
-		Entrenador entrenador = null;
+	
+	public Persona traerPersona(long dni) {
+		Persona persona = null;
 		int index = 0;
 		boolean encontrado = false;
 
-		if (!entrenadores.isEmpty()) {
-			while (index < entrenadores.size() && !encontrado) {
-				if (entrenadores.get(index).getDni() == dni) {
+		if (!personas.isEmpty()) {
+			while (index < personas.size() && !encontrado) {
+				if (personas.get(index).getDni() == dni) {
 					encontrado = true;
-					entrenador = entrenadores.get(index);
+					persona = personas.get(index);
 				}
 
 				index++;
 			}
 		}
-		 return entrenador;
+		 return persona;
 	}
 
-	public Jugador traerJugador(long dni) {
-		Jugador jugador = null;
-		int index = 0;
-		boolean encontrado = false;
-
-		if (!jugadores.isEmpty()) {
-			while (index < jugadores.size() && !encontrado) {
-				if (jugadores.get(index).getDni() == dni) {
-					encontrado = true;
-					jugador = jugadores.get(index);
-				}
-
-				index++;
-			}
-		}
-
-		return jugador;
-	}
-	
-	
 	public boolean agregarTorneo(String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin) throws Exception {
 		int id = 1;
 		if(!torneos.isEmpty()) id = torneos.get(torneos.size()-1).getIdTorneo()+1;
@@ -103,23 +82,37 @@ public class Sistema {
 		return torneoBuscado;
 	}
 	
-
-	public List<Entrenador> getEntrenadores() {
-		return entrenadores;
-	}
-
-	public void setEntrenadores(List<Entrenador> entrenadores) {
-		this.entrenadores = entrenadores;
-	}
-
-	public List<Jugador> getJugadores() {
+	public List<Jugador> listarJugadores(){
+		List<Jugador> jugadores = new ArrayList<Jugador>();
+		
+		for(Persona p: personas) {
+			if(p instanceof Jugador) {
+				jugadores.add((Jugador)p);
+			}
+		}
 		return jugadores;
 	}
-
-	public void setJugadores(List<Jugador> jugadores) {
-		this.jugadores = jugadores;
+	
+	public List<Entrenador> listarEntrenadores(){
+		List<Entrenador> entrenadores = new ArrayList<Entrenador>();
+		
+		for(Persona p: personas) {
+			if(p instanceof Entrenador) {
+				entrenadores.add((Entrenador)p);
+			}
+		}
+		return entrenadores;
+	}
+	
+	
+	public List<Persona> getPersonas() {
+		return personas;
 	}
 
+	public void setPersonas(List<Persona> personas) {
+		this.personas = personas;
+	}
+	
 	public List<Equipo> getEquipos() {
 		return equipos;
 	}
@@ -136,7 +129,7 @@ public class Sistema {
 		this.torneos = torneos;
 	}
 	//-------------------------Equipo---------------------------------------------------------------------
-	public void agregarEquipo(  String nombre, long dniEntrenador) throws Exception {
+	/*public void agregarEquipo(  String nombre, long dniEntrenador) throws Exception {
 		int id = 1;
 		Entrenador entrenador= traerEntrenador(dniEntrenador);
 		if(entrenador==null)throw new Exception("Error: Entrenador inexistente");
@@ -145,7 +138,7 @@ public class Sistema {
 			id = equipos.get(equipos.size()-1).getIdEquipo()+1;
 		} 
 		 equipos.add(new Equipo(id,codigo,nombre,entrenador));
-	}
+	}*/
 	
 	public Equipo traerEquipo(int id) {
 		Equipo equipoBuscado = null;
