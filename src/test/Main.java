@@ -78,28 +78,58 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+        try {
+        	System.out.println("Test 5: Agregamos Equipos");
+        	sistema.agregarEquipo("Equipo A", "EQA",LocalDate.of(2024, 10, 7),sistema.traerPersona(23232323));
+        	sistema.agregarEquipo("Equipo B", "EQB",LocalDate.of(2024, 10, 8),sistema.traerPersona(24242424));
+        	sistema.agregarEquipo("Equipo C", "EQC",LocalDate.of(2023, 10, 10),sistema.traerPersona(25252525));
+        	sistema.agregarEquipo("Equipo D", "EQD",LocalDate.of(2024, 10, 15),sistema.traerPersona(26262626));
+        	System.out.println(sistema.getEquipos());
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+        }
+        
+        try {
+        	System.out.println("Test 6: Intentamos agregar un equipo con codigo incorrecto");
+        	sistema.agregarEquipo("Equipo A", "EQAIII",LocalDate.of(2024, 10, 7),sistema.traerPersona(23232323));
+        	System.out.println(sistema.getEquipos());
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+        }
+        
+        try {
+        	System.out.println("Test 7: Intentamos agregar un equipo repetido (Completar)");
+        	//sistema.agregarEquipo("Equipo A", "EQA",LocalDate.of(2024, 10, 7),sistema.traerPersona(23232323));
+        	//System.out.println(sistema.getEquipos());
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+        }
+        
 
-		/*
-		 * try { System.out.println("Test 4: Agregamos torneos");
-		 * sistema.agregarTorneo("Torneo corto", "Invierno", LocalDate.of(2025, 5,
-		 * 25),LocalDate.of(2025, 7, 2)); sistema.agregarTorneo("Torneo corto",
-		 * "Primavera", LocalDate.of(2025, 9, 21),LocalDate.of(2025, 12, 21));
-		 * System.out.println(sistema.getTorneos()); } catch (Exception e) {
-		 * System.out.println(e.getMessage()); }
-		 * 
-		 * try { System.out.
-		 * println("Test 5: Intentamos agregar un torneo con la misma fecha de inicio y fin"
-		 * ); sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 7,
-		 * 25),LocalDate.of(2025, 7, 25)); System.out.println(sistema.getTorneos()); }
-		 * catch (Exception e) { System.out.println(e.getMessage()); }
-		 * 
-		 * try { System.out.
-		 * println("Test 6: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin"
-		 * ); sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 9,
-		 * 25),LocalDate.of(2025, 7, 25)); System.out.println(sistema.getTorneos()); }
-		 * catch (Exception e) { System.out.println(e.getMessage()); }
-		 * 
-		 */
+		try {
+			System.out.println("Test 8: Agregamos torneos");
+			sistema.agregarTorneo("Torneo 3 estrellas", "Invierno", LocalDate.of(2025, 5, 25), LocalDate.of(2025, 7, 2));
+			System.out.println(sistema.getTorneos());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		try {
+			System.out.println("Test 9: Intentamos agregar un torneo con la misma fecha de inicio y fin");
+			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 7, 25), LocalDate.of(2025, 7, 25));
+			System.out.println(sistema.getTorneos());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		try {
+			System.out.println("Test 10: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
+			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 9, 25), LocalDate.of(2025, 7, 25));
+			System.out.println(sistema.getTorneos());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
 	}
 
