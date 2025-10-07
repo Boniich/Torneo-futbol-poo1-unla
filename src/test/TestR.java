@@ -7,7 +7,7 @@ public class TestR {
         Sistema s = new Sistema();
 System.out.println("hola mundo");
 //Agregar entrenador y mostrarlo
-        try {
+       /* try {
             s.agregarEntrenador("Mario", "Bros", 11111111, LocalDate.of(1998,1,12), "Romper culos");
            System.out.println(s.traerEntrenador(11111111)); 
         } catch (Exception e) {
@@ -64,6 +64,6 @@ System.out.println("hola mundo");
         }catch(Exception e){
             System.out.println(e.getMessage()); 
         }
-        System.out.println("Intento traer el equipo que borre: "+s.traerEquipo("BOC"));
+        System.out.println("Intento traer el equipo que borre: "+s.traerEquipo("BOC"));*/
     }
 }
