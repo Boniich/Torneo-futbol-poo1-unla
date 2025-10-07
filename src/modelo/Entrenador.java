@@ -29,6 +29,6 @@ public class Entrenador extends Persona{
 
 	@Override
 	public String toString() {
-		return "Entrenador [idEntrenador=" + idEntrenador + " , "+super.toString()+ ", estrategiaFavorita=" + estrategiaFavorita + "]";
+		return "Entrenador [idEntrenador=" + idEntrenador + " , "+super.toString()+ ", estrategiaFavorita=" + estrategiaFavorita + "]\n";
 	}
 }
