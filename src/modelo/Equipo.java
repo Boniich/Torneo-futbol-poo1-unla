@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.List;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Equipo {
@@ -8,14 +9,16 @@ public class Equipo {
 	private final int idEquipo;
 	private String codigo;
 	private String nombre;
+	private LocalDate fechaCreacion;
 	private List<Jugador> jugadores;
 	private Entrenador entrenador;
 	
-	public Equipo(int idEquipo, String codigo, String nombre, Entrenador entrenador) {
+	public Equipo(int idEquipo, String nombre,String codigo,LocalDate fechaCreacion, Entrenador entrenador) throws Exception {
 		
 		this.idEquipo = idEquipo;
 		setCodigo(codigo);
 		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion;
 		this.entrenador = entrenador;
 		this.jugadores = new ArrayList<>();
 	}
@@ -45,20 +48,24 @@ public class Equipo {
 		if(jugador ==null) throw new Exception("Error: No existe el jugador!");
 			jugadores.remove(jugador);
 	}
-// ^[a-zA-ZñÑ]{3}$ valida exactamente 3 caracteres que sean solo letras.
-// Esto se recomienda para cumplir con: "tres letras del nombre"
-// return codigo.matches("^[a-zA-ZñÑ]{3}$");
-	public boolean isCodigo(String codigo){
-		//boolean n = false;
-		//if((codigo.length()==3 && nombre.contains(codigo)){
-		//	n=true;
-		//}
+	
+	
+	private boolean esCodigoValido(String codigo){
 		
-		//return n;
-
-		return codigo.matches("^[a-zA-ZñÑ]{3}$");
+		boolean codigoValido = true;
+		
+		if(codigo.length() != 3) {
+			codigoValido = false;
+		}else {
+			int i = 0;
+			
+			while(i < codigo.length() && codigoValido) {
+				codigoValido = Character.isLetter(codigo.charAt(i));
+				i++;
+			}
+		}
+		return codigoValido;
 	}
-
 
 	public int getIdEquipo(){
 		return idEquipo;
@@ -66,8 +73,12 @@ public class Equipo {
 	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(String codigo){
-		if(!isCodigo(codigo))throw new IllegalArgumentException("Error: Codigo no valido.");
+	
+	
+	
+	public void setCodigo(String codigo) throws Exception{
+		if(!esCodigoValido(codigo)) throw new Exception("Error: El codigo es incorrecto!");
+		
 		this.codigo=codigo;
 	}
 	public String getNombre() {
@@ -76,6 +87,18 @@ public class Equipo {
 	public void setNombre(String nombre) {
 		this.nombre=nombre;
 	}
+	
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+
 	public List<Jugador> getJugadores(){
 		return jugadores;
 	}
