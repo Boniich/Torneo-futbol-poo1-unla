@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class Persona {
 
@@ -60,7 +61,6 @@ public abstract class Persona {
 			throw new Exception("Error: La persona es menor edad!");
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
 
 	@Override
 	public String toString() {
