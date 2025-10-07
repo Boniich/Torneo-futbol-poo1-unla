@@ -43,7 +43,7 @@ public class Main {
 			sistema.agregarJugador("Juan", "Foyth", 19191919, LocalDate.of(1998, 1, 15), 1.82, 79, "Defensor", 14);
 			sistema.agregarJugador("Leonardo", "Balerdi", 20202020, LocalDate.of(1999, 1, 26), 1.87, 80, "Defensor", 5);
 			sistema.agregarJugador("Walter", "Benitez", 21212121, LocalDate.of(1993, 1, 19), 1.91, 88, "Portero", 12);
-			System.out.println(sistema.getJugadores());
+			System.out.println(sistema.listarJugadores());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -52,7 +52,7 @@ public class Main {
 		try {
 			System.out.println("Test 2: Intentamos agregar un jugador dos veces (mismo dni)");
 			sistema.agregarJugador("Lionel", "Messi", 11111111, LocalDate.of(1987, 6, 24), 1.70, 67, "Delantero", 10);
-			System.out.println(sistema.getJugadores());
+			System.out.println(sistema.getPersonas());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -61,7 +61,7 @@ public class Main {
 		try {
 			System.out.println("Test 3: Intentamos agregar un jugador menor de edad");
 			sistema.agregarJugador("Juancito", "hernandez", 31659781, LocalDate.of(2018, 3, 5), 1.80, 80, "Arquero", 1);
-			System.out.println(sistema.getJugadores());
+			System.out.println(sistema.getPersonas());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -74,7 +74,7 @@ public class Main {
 			sistema.agregarEntrenador("Diego", "Martinez", 25252525, LocalDate.of(1978, 11, 16),
 					"Estrategia defensiva");
 			sistema.agregarEntrenador("Ricardo", "Gareca", 26262626, LocalDate.of(1958, 2, 10), "Estrategia defensiva");
-			System.out.println(sistema.getEntrenadores());
+			System.out.println(sistema.listarEntrenadores());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
