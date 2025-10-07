@@ -48,6 +48,14 @@ public abstract class Persona {
 			throw new Exception("Error: La persona es menor edad!");
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	@Override
+	public String toString() {
+		return "[nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento="
+				+ fechaNacimiento + "]";
+	}
+	
+	
+	
 	
 	
 	
