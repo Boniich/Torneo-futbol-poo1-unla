@@ -16,7 +16,62 @@ public class Sistema {
 	}
 
 	// --- Casos de uso ---
+	public List<Equipo> buscarEquiposAntesDe(LocalDate antesDe){
+		List<Equipo> e= new ArrayList<Equipo>();
+		if (!(antesDe == null)){
+			
+		for(Equipo i: equipos){
+			if (antesDe.isAfter(i.getFechaCreacion())) {
+				e.add(i);
+			}
+		}
+		}
+		return e;
+	}
+	//consultar si incluir los extremos
+	public List<Jugador> buscarJugadoresEntre(LocalDate desde, LocalDate hasta){
+			List<Jugador> j= new ArrayList<Jugador>();
+		if (!(desde == null || hasta==null)){
+			List<Jugador> jaux= this.listarJugadores();
+		for(Jugador i: jaux){
+			if (desde.isBefore(i.getFechaNacimiento()) && hasta.isAfter(i.getFechaNacimiento())) {
+				j.add(i);
+			}
+		}
+		}
+		return j;
+	}
 	
+	public List<Entrenador> buscarEntrenadorPorEstrategia(String estrategia){
+		List<Entrenador> e= listarEntrenadores();
+		List<Entrenador> encontrados= new ArrayList<Entrenador>();
+		for(Entrenador i: e){
+			if(i.getEstrategiaFavorita(). equals(estrategia)){
+				encontrados.add(i);
+			}
+		}
+		return encontrados;
+		
+	}
+	public void agregarJugadorAEquipo(int dni, int idEquipo) throws Exception{
+		Persona j= traerPersona(dni);
+		Equipo e= traerEquipo(idEquipo);
+	
+		if(j==null || !(j instanceof Jugador))throw new Exception("Error:No existe jugador con el dni ingresado.");
+		if(e==null)throw new Exception("Error: Equipo no encontrado.");
+		if(e.getJugadores().contains(j))throw new Exception("Error: Ya existe en el equipo un jugador con ese dni.");
+		verificarJugadorEnOtroEquipo((Jugador)j);
+		 e.agregarJugador((Jugador)j);
+	}
+	public void verificarJugadorEnOtroEquipo(Jugador jugador) throws Exception {
+    
+    for (Equipo equipo : this.equipos) {
+        if (equipo.getJugadores().contains(jugador)) {  throw new Exception("Error: El jugador con DNI " + jugador.getDni() + " ya está registrado en el equipo: " + equipo.getNombre() + ".");
+        
+    }
+}
+    
+}
 	public boolean agregarJugador(String nombre, String apellido, long dni, LocalDate fechaNacimiento,
 			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
 		
@@ -89,6 +144,9 @@ public class Sistema {
 		if(!(persona instanceof Entrenador))  throw new Exception("Error: La persona no es un entrenador!");
 
 		//Tarea: Agregar if que contrala que un equipo no este repetido. lanzar excepcion
+		if (traerEquipo(codigo)!=null)throw new Exception("Error:El equipo ya existe.");
+			
+		
 		int id = 1;
 		if(!equipos.isEmpty()) id = equipos.get(equipos.size()-1).getIdEquipo()+1;
 		equipos.add(new Equipo(id,nombre,codigo,fechaCreacion,(Entrenador)persona));
@@ -181,6 +239,35 @@ public class Sistema {
 
 	public void setTorneos(List<Torneo> torneos) {
 		this.torneos = torneos;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sistema other = (Sistema) obj;
+		if (personas == null) {
+			if (other.personas != null)
+				return false;
+		} else if (!personas.equals(other.personas))
+			return false;
+		if (equipos == null) {
+			if (other.equipos != null)
+				return false;
+		} else if (!equipos.equals(other.equipos))
+			return false;
+		if (torneos == null) {
+			if (other.torneos != null)
+				return false;
+		} else if (!torneos.equals(other.torneos))
+			return false;
+		return true;
 	}
 
 }

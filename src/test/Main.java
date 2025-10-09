@@ -106,17 +106,63 @@ public class Main {
         	System.out.println(e.getMessage());
         }
         
-        
-      /*  try {
-        	System.out.println("Test 8: Agregamos jugadores a los equipos");
-        	sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(11111111));
-        } catch (Exception e) {
-        	System.out.println(e.getMessage());
-        }*/
-        
-
+try {
+    System.out.println("Test 8: Agregamos 11 jugadores al Equipo A (ID 1)");
+    
+    // 1. Delantero: Lionel Messi (11111111)
+    sistema.agregarJugadorAEquipo(11111111, 1);
+    
+    // 2. Mediocampista: Rodrigo De Paul (22222222)
+    sistema.agregarJugadorAEquipo(22222222, 1);
+    
+    // 3. Defensor: Cristian Romero (33333333)
+    sistema.agregarJugadorAEquipo(33333333, 1);
+    
+    // 4. Defensor: Nicolas Otamendi (44444444)
+    sistema.agregarJugadorAEquipo(44444444, 1);
+    
+    // 5. Portero: Emiliano Martinez (55555555)
+    sistema.agregarJugadorAEquipo(55555555, 1);
+    
+    // 6. Delantero: Julian Alvarez (66666666)
+    sistema.agregarJugadorAEquipo(66666666, 1);
+    
+    // 7. Mediocampista: Alexis Mac Allister (77777777)
+    sistema.agregarJugadorAEquipo(77777777, 1);
+    
+    // 8. Defensor: Nahuel Molina (88888888)
+    sistema.agregarJugadorAEquipo(88888888, 1);
+    
+    // 9. Defensor: Marcos Acuña (99999999)
+    sistema.agregarJugadorAEquipo(99999999, 1);
+    
+    // 10. Delantero: Lautaro Martinez (12121212)
+    sistema.agregarJugadorAEquipo(12121212, 1);
+    
+    // 11. Mediocampista: Enzo Fernandez (15151515)
+    sistema.agregarJugadorAEquipo(15151515, 1);
+    
+    System.out.println("Se agregaron 11 jugadores al Equipo A (ID 1).");
+    System.out.println("Muestro los jugadores agregados");
+    System.out.println(sistema.traerEquipo(1).getJugadores());
+    
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+        try{
+			System.out.println("Test 9: intento agregar jugadores repetidos:");
+			sistema.agregarJugadorAEquipo(15151515, 1);
+		}catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+       try{
+			System.out.println("Test 10: intento agregar un jugador que ya esta en otro equipo:");
+			sistema.agregarJugadorAEquipo(15151515, 2);
+		}catch (Exception e) {
+    System.out.println(e.getMessage());
+}
 		try {
-			System.out.println("Test 9: Agregamos torneos");
+			System.out.println("Test 11: Agregamos torneos");
 			sistema.agregarTorneo("Torneo 3 estrellas", "Invierno", LocalDate.of(2025, 5, 25), LocalDate.of(2025, 7, 2));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
@@ -124,7 +170,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 10: Intentamos agregar un torneo con la misma fecha de inicio y fin");
+			System.out.println("Test 12: Intentamos agregar un torneo con la misma fecha de inicio y fin");
 			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 7, 25), LocalDate.of(2025, 7, 25));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
@@ -132,7 +178,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 11: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
+			System.out.println("Test 13: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
 			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 9, 25), LocalDate.of(2025, 7, 25));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
