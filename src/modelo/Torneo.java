@@ -37,10 +37,10 @@ public class Torneo {
     	return equipoBuscado;
     }
     
-    public void agregarEquipo(Equipo equipo) { 
-                     
-            equiposParticipantes.add(equipo);
-        
+    public void agregarEquipo(Equipo equipo) throws Exception {	
+    	if(equipo == null) throw new Exception("Error: Equipo es null!");
+    	if(traerEquipo(equipo) != null) throw new Exception("Error: El equipo ya existe en el torneo!");             
+        equiposParticipantes.add(equipo);
     }
     public void agregarPartido(Partido partido) { 
                      

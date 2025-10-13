@@ -189,7 +189,24 @@ public class Main {
 		System.out.println("Test 14: Calculamos la altura de un equipo");
 		System.out.println(String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
 		
+		try {
+			System.out.println("Test 15: Agregamos los equipos al torneo");
+			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
+			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(2));
+			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(3));
+			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(4));
+			System.out.println(sistema.traerTorneo(1).getEquiposParticipantes());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
+		try {
+			System.out.println("Test 16: Intentamos agregar un equipo repetido");
+			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
+			System.out.println(sistema.traerTorneo(1).getEquiposParticipantes());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 
