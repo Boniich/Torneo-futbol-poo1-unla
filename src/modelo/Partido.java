@@ -24,6 +24,31 @@ public class Partido {
         this.setEstadio(estadio);
         this.estadisticas = new ArrayList<>();
     }
+    
+    public Estadistica traerEstadistica(int id) {
+    	Estadistica estadisticaBuscada = null;
+    	int index = 0;
+    	while(estadisticaBuscada == null && index < estadisticas.size()) {
+    		if(estadisticas.get(index).getIdEstadistica() == id) {
+    			estadisticaBuscada = estadisticas.get(index);
+    		}
+    		index++;
+    	}
+    	return estadisticaBuscada;
+    }
+    
+    public Estadistica traerEstadistica(Persona persona) {
+    	Estadistica estadisticaBuscada = null;
+    	int index = 0;
+    	while(estadisticaBuscada == null && index < estadisticas.size()) {
+    		if(persona instanceof Jugador && estadisticas.get(index).getJugador().equals(persona)) {
+    			estadisticaBuscada = estadisticas.get(index);
+    		}
+    		index++;
+    	}
+    	return estadisticaBuscada;
+    }
+    
 
     public void agregarEstadistica ( Estadistica estadistica){
         
