@@ -24,6 +24,19 @@ public class Torneo {
         this.setFechaFin(fechaFin);
         this.partidos = new ArrayList<>();
     }
+    
+    public Equipo traerEquipo(Equipo equipo) {
+    	Equipo equipoBuscado = null;
+    	int index = 0;
+    	while(equipoBuscado == null && index < equiposParticipantes.size()) {
+    		if(equiposParticipantes.get(index).equals(equipo)) {
+    			equipoBuscado = equiposParticipantes.get(index);
+    		}
+    		index++;
+    	}
+    	return equipoBuscado;
+    }
+    
     public void agregarEquipo(Equipo equipo) { 
                      
             equiposParticipantes.add(equipo);
