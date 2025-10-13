@@ -23,6 +23,20 @@ public class Equipo {
 		this.jugadores = new ArrayList<>();
 	}
 	
+	
+	public double calcularAlturaPromedio() {
+		double alturaPromedio = 0;
+		if(!jugadores.isEmpty()) {
+			for(Jugador j: jugadores) {
+				alturaPromedio += j.getEstatura();
+			}
+			alturaPromedio/=jugadores.size();
+		}
+		
+		return alturaPromedio;
+	}
+	
+	
 	//Debemos cambiar la referencia de Jugador jugador por Persona persona
 	//Debemos validar que el objeto pasado es de tipo Jugador
 	//Debemos validar que ese jugador no este en la lista
