@@ -80,12 +80,12 @@ public class Partido {
     public void setEstadisticas(List<Estadistica> estadisticas) {
         this.estadisticas = estadisticas;
     }
+    
 
     @Override
     public String toString() {
         return "Partido [idPartido=" + idPartido + ", fecha=" + fecha + ", hora=" + hora + ", equipoLocal="
-                + equipoLocal + ", equipoVisita=" + equipoVisita + ", estadio=" + estadio + ", estadisticas="
-                + estadisticas + "]";
+                + equipoLocal.getNombre() + ", equipoVisita=" + equipoVisita.getNombre() + ", estadio=" + estadio + "]\n";
     }
 
 
