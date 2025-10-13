@@ -47,6 +47,19 @@ public class Torneo {
             partidos.add(partido);
         
     }
+    
+    public Equipo traerEquipoConMayorAltura() throws Exception {
+    	if(equiposParticipantes.isEmpty()) throw new Exception("Error: No hay equipos en el torneo."
+    			+ " No se puede obtener el equipo con mayor altura");
+    	
+    	Equipo equipo = equiposParticipantes.get(0);
+    	for(int i = 1; i < equiposParticipantes.size();i++) {
+    		if(equiposParticipantes.get(i).calcularAlturaPromedio() > equipo.calcularAlturaPromedio()) {
+    			equipo = equiposParticipantes.get(i);
+    		}
+    	}
+    	return equipo;
+    }
   
 
     public int getIdTorneo() {
