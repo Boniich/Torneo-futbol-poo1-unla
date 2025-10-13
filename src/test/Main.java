@@ -186,9 +186,13 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		
-		System.out.println("Test 14: Calculamos la altura de un equipo");
-		System.out.println(String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
-		
+		System.out.println("Test 14: Calculamos la altura promedio de todos los equipos");
+		System.out.println("Equipo A "+String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
+		System.out.println("Equipo B "+String.format("%.2f", sistema.traerEquipo(2).calcularAlturaPromedio()));
+		System.out.println("Equipo C "+String.format("%.2f", sistema.traerEquipo(3).calcularAlturaPromedio()));
+		System.out.println("Equipo D "+String.format("%.2f", sistema.traerEquipo(4).calcularAlturaPromedio()));
+
+	
 		try {
 			System.out.println("Test 15: Agregamos los equipos al torneo");
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
@@ -204,6 +208,14 @@ public class Main {
 			System.out.println("Test 16: Intentamos agregar un equipo repetido");
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
 			System.out.println(sistema.traerTorneo(1).getEquiposParticipantes());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			System.out.println("Test 17: Calculamos el equipo con mayor altura del torneo");
+			sistema.traerTorneo(1).traerEquipoConMayorAltura();
+			System.out.println(sistema.traerTorneo(1).traerEquipoConMayorAltura());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
