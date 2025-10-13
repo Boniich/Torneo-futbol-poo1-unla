@@ -1,6 +1,7 @@
 package test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import modelo.Equipo;
 import modelo.Sistema;
@@ -216,6 +217,54 @@ public class Main {
 			System.out.println("Test 17: Calculamos el equipo con mayor altura del torneo");
 			sistema.traerTorneo(1).traerEquipoConMayorAltura();
 			System.out.println(sistema.traerTorneo(1).traerEquipoConMayorAltura());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			System.out.println("Test 18: Agregamos partidos al torneo 1");
+			sistema.traerTorneo(1).agregarPartido(
+					LocalDate.of(2025, 6, 5), 
+					LocalTime.of(10, 0),
+					sistema.traerEquipo("EQA"), 
+					sistema.traerEquipo("EQB"),
+					"Estadio 1");
+			
+			sistema.traerTorneo(1).agregarPartido(
+					LocalDate.of(2025, 6, 7), 
+					LocalTime.of(18, 0),
+					sistema.traerEquipo("EQC"), 
+					sistema.traerEquipo("EQD"),
+					"Estadio 2");
+			
+			sistema.traerTorneo(1).agregarPartido(
+					LocalDate.of(2025, 6, 12), 
+					LocalTime.of(10, 0),
+					sistema.traerEquipo("EQA"), 
+					sistema.traerEquipo("EQC"),
+					"Estadio 1");
+
+			sistema.traerTorneo(1).agregarPartido(
+					LocalDate.of(2025, 6, 14), 
+					LocalTime.of(18, 0),
+					sistema.traerEquipo("EQB"), 
+					sistema.traerEquipo("EQD"),
+					"Estadio 2");
+			
+			sistema.traerTorneo(1).agregarPartido(
+					LocalDate.of(2025, 6, 19), 
+					LocalTime.of(10, 0),
+					sistema.traerEquipo("EQA"), 
+					sistema.traerEquipo("EQD"),
+					"Estadio 1");
+
+			sistema.traerTorneo(1).agregarPartido(
+					LocalDate.of(2025, 6, 21), 
+					LocalTime.of(18, 0),
+					sistema.traerEquipo("EQB"), 
+					sistema.traerEquipo("EQC"),
+					"Estadio 2");
+			System.out.println(sistema.traerTorneo(1).getPartidos());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
