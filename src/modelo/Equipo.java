@@ -159,7 +159,9 @@ public class Equipo {
 
 
 	public boolean equals(Equipo equipo) {
-		return this.codigo.equals(equipo.getCodigo()) && this.idEquipo == equipo.idEquipo;
+		return 	this.nombre.equalsIgnoreCase(equipo.getNombre()) &&
+				this.codigo.equalsIgnoreCase(equipo.getCodigo()) && 
+				this.idEquipo == equipo.idEquipo;
 	}
 	
 }
