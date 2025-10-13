@@ -138,7 +138,7 @@ public class Equipo {
 		return "Equipo [idEquipo=" + idEquipo 
 				+ ", codigo=" + codigo 
 				+ ", nombre=" + nombre 
-				+ ", jugadores= "+ jugadores
+				+ ", jugadores= \n"+ jugadores
 				+ ", entrenador= " + entrenador
 				+ "]";
 	}
