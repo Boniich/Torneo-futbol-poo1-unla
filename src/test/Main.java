@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import modelo.Equipo;
+import modelo.Estadistica;
+import modelo.Jugador;
 import modelo.Sistema;
 
 public class Main {
@@ -268,6 +270,20 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		//Cambiar en la proxima branch
+		try {
+			Estadistica e = new Estadistica(1, 2,1, 10,(Jugador)sistema.traerPersona(11111111));
+			sistema.traerTorneo(1).traerPartido(LocalDate.of(2025, 6, 5), 
+					LocalTime.of(10, 0), "Estadio 1").agregarEstadistica(e);
+			System.out.println(sistema.traerTorneo(1).traerPartido(LocalDate.of(2025, 6, 5), 
+					LocalTime.of(10, 0), "Estadio 1").traerEstadistica(sistema.traerPersona(11111111)));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		
 	}
 
