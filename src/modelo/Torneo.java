@@ -60,10 +60,15 @@ public class Torneo {
     }
     
     
-    public void agregarPartido(Partido partido) { 
-                     
-            partidos.add(partido);
-        
+    public void agregarPartido(LocalDate fecha, LocalTime hora, Equipo equipoLocal, 
+    		Equipo equipoVisitante, String estadio) throws Exception { 
+    		
+    		if(traerPartido(fecha, hora, estadio) != null) 
+    			throw new Exception("Error: Ya existe un partido con la misma fecha, hora y estadio!");
+    		
+    		int id = 1;
+    		if(!partidos.isEmpty()) id= partidos.get(partidos.size()-1).getIdPartido()+1;
+            partidos.add(new Partido(id,fecha,hora,equipoLocal,equipoVisitante,estadio));
     }
     
     public Equipo traerEquipoConMayorAltura() throws Exception {
