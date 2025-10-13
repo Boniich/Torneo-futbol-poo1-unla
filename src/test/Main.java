@@ -185,6 +185,9 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		System.out.println("Test 14: Calculamos la altura de un equipo");
+		System.out.println(String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
 
 	}
 
