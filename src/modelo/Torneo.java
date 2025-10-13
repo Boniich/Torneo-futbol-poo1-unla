@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,23 @@ public class Torneo {
     	if(traerEquipo(equipo) != null) throw new Exception("Error: El equipo ya existe en el torneo!");             
         equiposParticipantes.add(equipo);
     }
+    
+    
+    public Partido traerPartido(LocalDate fecha, LocalTime hora, String estadio) {
+    	Partido partido = null;
+    	int index = 0;
+    	while(partido == null && index < partidos.size()) {
+    		if(partidos.get(index).getFecha().equals(fecha) &&
+    		   partidos.get(index).getHora().equals(hora) && 
+    		   partidos.get(index).getEstadio().equalsIgnoreCase(estadio)){
+    			partido = partidos.get(index);
+    		}
+    		index++;
+    	}
+    	return partido;
+    }
+    
+    
     public void agregarPartido(Partido partido) { 
                      
             partidos.add(partido);
