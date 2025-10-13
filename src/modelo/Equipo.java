@@ -157,43 +157,9 @@ public class Equipo {
 				+ "]";
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Equipo other = (Equipo) obj;
-		if (idEquipo != other.idEquipo)
-			return false;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (fechaCreacion == null) {
-			if (other.fechaCreacion != null)
-				return false;
-		} else if (!fechaCreacion.equals(other.fechaCreacion))
-			return false;
-		if (jugadores == null) {
-			if (other.jugadores != null)
-				return false;
-		} else if (!jugadores.equals(other.jugadores))
-			return false;
-		if (entrenador == null) {
-			if (other.entrenador != null)
-				return false;
-		} else if (!entrenador.equals(other.entrenador))
-			return false;
-		return true;
+
+	public boolean equals(Equipo equipo) {
+		return this.codigo.equals(equipo.getCodigo()) && this.idEquipo == equipo.idEquipo;
 	}
 	
 }
