@@ -64,8 +64,8 @@ public abstract class Persona {
 
 	@Override
 	public String toString() {
-		return "[id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-				+ ", fechaNacimiento=" + fechaNacimiento + "]";
+		return "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
+				+ ", fechaNacimiento=" + fechaNacimiento;
 	}
 
 	public boolean equals(Persona persona) {
