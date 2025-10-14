@@ -53,25 +53,7 @@ public class Sistema {
 		return encontrados;
 		
 	}
-	public void agregarJugadorAEquipo(int dni, int idEquipo) throws Exception{
-		Persona j= traerPersona(dni);
-		Equipo e= traerEquipo(idEquipo);
-	
-		if(j==null || !(j instanceof Jugador))throw new Exception("Error:No existe jugador con el dni ingresado.");
-		if(e==null)throw new Exception("Error: Equipo no encontrado.");
-		if(e.getJugadores().contains(j))throw new Exception("Error: Ya existe en el equipo un jugador con ese dni.");
-		verificarJugadorEnOtroEquipo((Jugador)j);
-		 e.agregarJugador((Jugador)j);
-	}
-	public void verificarJugadorEnOtroEquipo(Jugador jugador) throws Exception {
-    
-    for (Equipo equipo : this.equipos) {
-        if (equipo.getJugadores().contains(jugador)) {  throw new Exception("Error: El jugador con DNI " + jugador.getDni() + " ya está registrado en el equipo: " + equipo.getNombre() + ".");
-        
-    }
-}
-    
-}
+
 	public boolean agregarJugador(String nombre, String apellido, long dni, LocalDate fechaNacimiento,
 			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
 		
