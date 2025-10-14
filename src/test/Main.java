@@ -55,7 +55,6 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 
-		// Intentamos agregar un jugador dos veces o con mismo dni
 		try {
 			System.out.println("Test 2: Intentamos agregar un jugador dos veces (mismo dni)");
 			sistema.agregarJugador("Lionel", "Messi", 11111111, LocalDate.of(1987, 6, 24), 1.70, 67, "Delantero", 10);
@@ -64,7 +63,6 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 
-		// Intentamos agregar un jugador que sea menor de edad
 		try {
 			System.out.println("Test 3: Intentamos agregar un jugador menor de edad");
 			sistema.agregarJugador("Juancito", "hernandez", 31659781, LocalDate.of(2018, 3, 5), 1.80, 80, "Arquero", 1);
@@ -162,7 +160,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		/*
+
 		try {
 			System.out.println("Test 11: Agregamos torneos");
 			sistema.agregarTorneo("Torneo 3 estrellas", "Invierno", LocalDate.of(2025, 5, 25),
@@ -244,7 +242,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+		
 		try {
 			System.out.println("Test 19: Agregamos estadisticas para torneo 1");
 
@@ -273,7 +271,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		System.out.println("Test 21: Traemos los partidos por equipo");
 		Torneo t = sistema.traerTorneo(1);
 		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQA"))));
@@ -291,7 +289,7 @@ public class Main {
 
 		System.out.println("Test 23: Generar tabla de posiciones");
 		System.out.println(sistema.traerTorneo(1).generarTablaPosiciones());
-		*/
+	
 		
 	}
 	
