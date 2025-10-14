@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.clasesAuxiliares.Posicion;
+
 public class Torneo {
     private int idTorneo;
     private String nombre;
@@ -118,6 +120,18 @@ public class Torneo {
     		}
     	}
     	return equipo;
+    }
+    
+    public List<Posicion> generarTablaPosiciones(){
+    	List<Posicion> posiciones = new ArrayList<Posicion>();
+    	
+    	for(Equipo e: equiposParticipantes) {
+    		posiciones.add(new Posicion(e,calcularPuntosPorEquipo(e)));
+    	}
+    	
+    	posiciones.sort((p1,p2)->Integer.compare(p2.getPuntaje(),p1.getPuntaje()));
+    	
+    	return posiciones;
     }
   
 
