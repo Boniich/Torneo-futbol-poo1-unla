@@ -2,11 +2,13 @@ package test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Random;
 
 import modelo.Equipo;
 import modelo.Estadistica;
 import modelo.Jugador;
 import modelo.Sistema;
+import modelo.enums.TipoEquipo;
 
 public class Main {
 
@@ -121,37 +123,35 @@ public class Main {
 			sistema.agregarJugadorAEquipo(44444444, 1);
 			sistema.agregarJugadorAEquipo(55555555, 1);
 
-			//Equipo B
+			// Equipo B
 			sistema.agregarJugadorAEquipo(66666666, 2);
 			sistema.agregarJugadorAEquipo(77777777, 2);
 			sistema.agregarJugadorAEquipo(88888888, 2);
 			sistema.agregarJugadorAEquipo(99999999, 2);
 			sistema.agregarJugadorAEquipo(10101010, 2);
-			
-			//Equipo C
+
+			// Equipo C
 			sistema.agregarJugadorAEquipo(12121212, 3);
 			sistema.agregarJugadorAEquipo(13131313, 3);
 			sistema.agregarJugadorAEquipo(14141414, 3);
 			sistema.agregarJugadorAEquipo(15151515, 3);
 			sistema.agregarJugadorAEquipo(16161616, 3);
-			
-			//Equipo D
+
+			// Equipo D
 			sistema.agregarJugadorAEquipo(17171717, 4);
 			sistema.agregarJugadorAEquipo(18181818, 4);
 			sistema.agregarJugadorAEquipo(19191919, 4);
 			sistema.agregarJugadorAEquipo(20202020, 4);
 			sistema.agregarJugadorAEquipo(21212121, 4);
-			
-			for(Equipo e: sistema.getEquipos()) {
+
+			for (Equipo e : sistema.getEquipos()) {
 				System.out.println(e);
 			}
-			
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-		
+
 		try {
 			System.out.println("Test 9: intento agregar jugadores repetidos:");
 			sistema.agregarJugadorAEquipo(15151515, 1);
@@ -188,14 +188,13 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-		System.out.println("Test 14: Calculamos la altura promedio de todos los equipos");
-		System.out.println("Equipo A "+String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
-		System.out.println("Equipo B "+String.format("%.2f", sistema.traerEquipo(2).calcularAlturaPromedio()));
-		System.out.println("Equipo C "+String.format("%.2f", sistema.traerEquipo(3).calcularAlturaPromedio()));
-		System.out.println("Equipo D "+String.format("%.2f", sistema.traerEquipo(4).calcularAlturaPromedio()));
 
-	
+		System.out.println("Test 14: Calculamos la altura promedio de todos los equipos");
+		System.out.println("Equipo A " + String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
+		System.out.println("Equipo B " + String.format("%.2f", sistema.traerEquipo(2).calcularAlturaPromedio()));
+		System.out.println("Equipo C " + String.format("%.2f", sistema.traerEquipo(3).calcularAlturaPromedio()));
+		System.out.println("Equipo D " + String.format("%.2f", sistema.traerEquipo(4).calcularAlturaPromedio()));
+
 		try {
 			System.out.println("Test 15: Agregamos los equipos al torneo");
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
@@ -206,7 +205,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		try {
 			System.out.println("Test 16: Intentamos agregar un equipo repetido");
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
@@ -214,7 +213,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		try {
 			System.out.println("Test 17: Calculamos el equipo con mayor altura del torneo");
 			sistema.traerTorneo(1).traerEquipoConMayorAltura();
@@ -222,69 +221,102 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		try {
 			System.out.println("Test 18: Agregamos partidos al torneo 1");
-			sistema.traerTorneo(1).agregarPartido(
-					LocalDate.of(2025, 6, 5), 
-					LocalTime.of(10, 0),
-					sistema.traerEquipo("EQA"), 
-					sistema.traerEquipo("EQB"),
-					"Estadio 1");
-			
-			sistema.traerTorneo(1).agregarPartido(
-					LocalDate.of(2025, 6, 7), 
-					LocalTime.of(18, 0),
-					sistema.traerEquipo("EQC"), 
-					sistema.traerEquipo("EQD"),
-					"Estadio 2");
-			
-			sistema.traerTorneo(1).agregarPartido(
-					LocalDate.of(2025, 6, 12), 
-					LocalTime.of(10, 0),
-					sistema.traerEquipo("EQA"), 
-					sistema.traerEquipo("EQC"),
-					"Estadio 1");
+			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 5), LocalTime.of(10, 0),
+					sistema.traerEquipo("EQA"), sistema.traerEquipo("EQB"), "Estadio 1");
 
-			sistema.traerTorneo(1).agregarPartido(
-					LocalDate.of(2025, 6, 14), 
-					LocalTime.of(18, 0),
-					sistema.traerEquipo("EQB"), 
-					sistema.traerEquipo("EQD"),
-					"Estadio 2");
-			
-			sistema.traerTorneo(1).agregarPartido(
-					LocalDate.of(2025, 6, 19), 
-					LocalTime.of(10, 0),
-					sistema.traerEquipo("EQA"), 
-					sistema.traerEquipo("EQD"),
-					"Estadio 1");
+			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 7), LocalTime.of(18, 0),
+					sistema.traerEquipo("EQC"), sistema.traerEquipo("EQD"), "Estadio 2");
 
-			sistema.traerTorneo(1).agregarPartido(
-					LocalDate.of(2025, 6, 21), 
-					LocalTime.of(18, 0),
-					sistema.traerEquipo("EQB"), 
-					sistema.traerEquipo("EQC"),
-					"Estadio 2");
+			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 12), LocalTime.of(10, 0),
+					sistema.traerEquipo("EQA"), sistema.traerEquipo("EQC"), "Estadio 1");
+
+			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 14), LocalTime.of(18, 0),
+					sistema.traerEquipo("EQB"), sistema.traerEquipo("EQD"), "Estadio 2");
+
+			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 19), LocalTime.of(10, 0),
+					sistema.traerEquipo("EQA"), sistema.traerEquipo("EQD"), "Estadio 1");
+
+			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 21), LocalTime.of(18, 0),
+					sistema.traerEquipo("EQB"), sistema.traerEquipo("EQC"), "Estadio 2");
 			System.out.println(sistema.traerTorneo(1).getPartidos());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-		//Cambiar en la proxima branch
+
 		try {
-			Estadistica e = new Estadistica(1, 2,1, 10,(Jugador)sistema.traerPersona(11111111));
-			sistema.traerTorneo(1).traerPartido(LocalDate.of(2025, 6, 5), 
-					LocalTime.of(10, 0), "Estadio 1").agregarEstadistica(e);
-			System.out.println(sistema.traerTorneo(1).traerPartido(LocalDate.of(2025, 6, 5), 
-					LocalTime.of(10, 0), "Estadio 1").traerEstadistica(sistema.traerPersona(11111111)));
-			
+			System.out.println("Test 19: Agregamos estadisticas para torneo 1");
+
+
+			for (int idPartido = 1; idPartido < sistema.traerTorneo(1).getPartidos().size(); idPartido++) {
+				generarEstadisticaPorJugador(sistema, 1, idPartido, TipoEquipo.LOCAL);
+				generarEstadisticaPorJugador(sistema, 1, idPartido, TipoEquipo.VISITA);
+
+			}
+
+			for (int idPartido = 1; idPartido < sistema.traerTorneo(1).getPartidos().size(); idPartido++) {
+
+				System.out.println(sistema.traerTorneo(1).traerPartido(idPartido).getEstadisticas());
+			}
+
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getMessage());
 		}
 		
+		try {
+			System.out.println("Test 20: Intentamos agregar una estadistica para un jugador dos veces");
+			sistema.traerTorneo(1).traerPartido(1).agregarEstadistica(1, 0, 30,
+					sistema.traerTorneo(1).traerPartido(1).getEquipoLocal().getJugadores()
+					.get(0));
+
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	
+	// - un goleador por partido, un asistidor
+	// 1- cantidad de goles del goleador local
+	// 2- cantidad de goles del goleador visitante
+	// 3- Al momento de generar el jugador debo elegir el goleado y asistente
+	// 4- El resto de jugadores deben quedan con 0 goles y 0 asistencias
+	
+	public static void generarEstadisticaPorJugador(Sistema sistema,int idTorneo, int idPartido, TipoEquipo tipoEquipo) throws Exception {
 		
+		Random random = new Random();
+		int golesGoleador= random.nextInt(3);
+		int goles = 0;
+		int asistencias = 0;
+		int indexGoleador = 0;
+		int indexAsistente = 1;
 		
+
+		for (int cantidadJugadores = 0; cantidadJugadores < 5; cantidadJugadores++) {
+
+			if (golesGoleador > 0 && indexGoleador == cantidadJugadores) {
+				goles = golesGoleador;
+			}else if(golesGoleador > 0 && indexAsistente == cantidadJugadores) {
+				asistencias = golesGoleador;
+			}
+			
+			Jugador jugador = null;
+			if(tipoEquipo == TipoEquipo.LOCAL) {
+				jugador = sistema.traerTorneo(idTorneo).traerPartido(idPartido).getEquipoLocal().getJugadores()
+				.get(cantidadJugadores);
+			}else {
+				jugador = sistema.traerTorneo(idTorneo).traerPartido(idPartido).getEquipoVisita().getJugadores()
+						.get(cantidadJugadores);
+			}
+			
+			sistema.traerTorneo(idTorneo).traerPartido(idPartido).agregarEstadistica(goles, asistencias, 30,jugador);
+
+			goles = 0;
+			asistencias = 0;
+		}
 	}
 
 }
