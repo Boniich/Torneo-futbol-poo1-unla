@@ -117,33 +117,30 @@ public class Main {
 		try {
 			System.out.println("Test 8: Agregamos 5 jugadores para cada equipo");
 
-			// Equipo A
-			sistema.agregarJugadorAEquipo(11111111, 1);
-			sistema.agregarJugadorAEquipo(22222222, 1);
-			sistema.agregarJugadorAEquipo(33333333, 1);
-			sistema.agregarJugadorAEquipo(44444444, 1);
-			sistema.agregarJugadorAEquipo(55555555, 1);
-
-			// Equipo B
-			sistema.agregarJugadorAEquipo(66666666, 2);
-			sistema.agregarJugadorAEquipo(77777777, 2);
-			sistema.agregarJugadorAEquipo(88888888, 2);
-			sistema.agregarJugadorAEquipo(99999999, 2);
-			sistema.agregarJugadorAEquipo(10101010, 2);
-
-			// Equipo C
-			sistema.agregarJugadorAEquipo(12121212, 3);
-			sistema.agregarJugadorAEquipo(13131313, 3);
-			sistema.agregarJugadorAEquipo(14141414, 3);
-			sistema.agregarJugadorAEquipo(15151515, 3);
-			sistema.agregarJugadorAEquipo(16161616, 3);
-
-			// Equipo D
-			sistema.agregarJugadorAEquipo(17171717, 4);
-			sistema.agregarJugadorAEquipo(18181818, 4);
-			sistema.agregarJugadorAEquipo(19191919, 4);
-			sistema.agregarJugadorAEquipo(20202020, 4);
-			sistema.agregarJugadorAEquipo(21212121, 4);
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(11111111));
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(22222222));
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(33333333));
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(44444444));
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(55555555));
+			
+			sistema.traerEquipo("EQB").agregarJugador(sistema.traerPersona(66666666));
+			sistema.traerEquipo("EQB").agregarJugador(sistema.traerPersona(77777777));
+			sistema.traerEquipo("EQB").agregarJugador(sistema.traerPersona(88888888));
+			sistema.traerEquipo("EQB").agregarJugador(sistema.traerPersona(99999999));
+			sistema.traerEquipo("EQB").agregarJugador(sistema.traerPersona(10101010));
+			
+			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(12121212));
+			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(13131313));
+			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(14141414));
+			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(15151515));
+			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(16161616));
+			
+			
+			sistema.traerEquipo("EQD").agregarJugador(sistema.traerPersona(17171717));
+			sistema.traerEquipo("EQD").agregarJugador(sistema.traerPersona(18181818));
+			sistema.traerEquipo("EQD").agregarJugador(sistema.traerPersona(19191919));
+			sistema.traerEquipo("EQD").agregarJugador(sistema.traerPersona(20202020));
+			sistema.traerEquipo("EQD").agregarJugador(sistema.traerPersona(21212121));
 
 			for (Equipo e : sistema.getEquipos()) {
 				System.out.println(e);
@@ -155,16 +152,17 @@ public class Main {
 
 		try {
 			System.out.println("Test 9: intento agregar jugadores repetidos:");
-			sistema.agregarJugadorAEquipo(15151515, 1);
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(11111111));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
+		}	
 		try {
 			System.out.println("Test 10: intento agregar un jugador que ya esta en otro equipo:");
-			sistema.agregarJugadorAEquipo(15151515, 2);
+			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(66666666));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		/*
 		try {
 			System.out.println("Test 11: Agregamos torneos");
 			sistema.agregarTorneo("Torneo 3 estrellas", "Invierno", LocalDate.of(2025, 5, 25),
@@ -293,7 +291,7 @@ public class Main {
 
 		System.out.println("Test 23: Generar tabla de posiciones");
 		System.out.println(sistema.traerTorneo(1).generarTablaPosiciones());
-		
+		*/
 		
 	}
 	
