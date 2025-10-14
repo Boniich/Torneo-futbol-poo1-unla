@@ -7,6 +7,7 @@ public class Jugador extends Persona {
 	private double peso;
 	private String posicion;
 	private int numeroCamiseta;
+	private Equipo equipo;
 
 	public Jugador(int id,String apellido, String nombre, long dni, LocalDate fechaNacimiento,
 			double estatura, double peso, String posicion, int numeroCamiseta) throws Exception {
@@ -15,6 +16,7 @@ public class Jugador extends Persona {
 		this.setPeso(peso);
 		this.setPosicion(posicion);
 		this.setNumeroCamiseta(numeroCamiseta);
+		this.equipo = null;
 	}
 	
 	public double getEstatura() {
@@ -45,12 +47,22 @@ public class Jugador extends Persona {
 		if(numeroCamiseta < 0) throw new Exception("Error: El numero de la posicion no puede ser negativo!");
 		this.numeroCamiseta = numeroCamiseta;
 	}
+	
+	public Equipo getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
+	}
 
 	@Override
 	public String toString() {
-		return "Jugador ["+super.toString()+" estatura=" + estatura + ", peso=" + peso + ", posicion=" + posicion + ", numeroCamiseta="
-				+ numeroCamiseta + "]\n";
+		return "Jugador ["+super.toString() +" estatura=" + estatura + ", peso=" + peso + ", posicion=" + posicion + ", numeroCamiseta="
+				+ numeroCamiseta + ", equipo=" + equipo.getNombre() + "]\n";
 	}
+
+
 
 }
 
