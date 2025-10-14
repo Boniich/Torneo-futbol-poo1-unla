@@ -36,18 +36,16 @@ public class Equipo {
 		return alturaPromedio;
 	}
 	
-	
-	//Debemos cambiar la referencia de Jugador jugador por Persona persona
-	//Debemos validar que el objeto pasado es de tipo Jugador
-	//Debemos validar que ese jugador no este en la lista
-	public void agregarJugador(Jugador jugador) throws Exception {
-		if(traerJugador(jugador.getDni()) != null) throw new Exception("Error: El jugador ya existe!");
-		//if(traerJugador(jugador) throw new Exception("Error: El jugador ya existe!");
-
-        	jugadores.add(jugador);
+	public void agregarJugador(Persona persona) throws Exception {
+		if(!(persona instanceof Jugador)) throw new Exception("Error: La persona no es un jugador!");
+		Jugador jugador = (Jugador)persona;
+		if(traerJugador(jugador) != null) throw new Exception("Error: El jugador ya esta en el equipo!");
+		if(jugador.getEquipo() != null) throw new Exception("Error: El jugador ya tiene equipo!");
+		jugador.setEquipo(this);
+        jugadores.add(jugador);
 	}
 	
-	/*
+	
 	public Jugador traerJugador(Jugador jugador) {
 		Jugador jugadorBuscado = null;
 		int index = 0;
@@ -60,28 +58,15 @@ public class Equipo {
 			index++;
 		}
 		return jugadorBuscado;
-	}*/
-	
-	
-	public Jugador traerJugador(long dni) {
-		Jugador jugadorBuscado = null;
-		int index = 0;
-		boolean encontrado = false;
-		while(index < jugadores.size() && !encontrado) {
-			if(jugadores.get(index).getDni() == dni) {
-				jugadorBuscado = jugadores.get(index);
-				encontrado = true;
-			}
-			index++;
-		}
-		return jugadorBuscado;
 	}
+	
+/*
 	public void eliminarJugador(long dni)throws Exception{
 		Jugador jugador= this.traerJugador(dni);
 		if(jugador ==null) throw new Exception("Error: No existe el jugador!");
 			jugadores.remove(jugador);
 	}
-	
+	*/
 	
 	private boolean esCodigoValido(String codigo){
 		
