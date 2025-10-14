@@ -49,7 +49,7 @@ public class Partido {
     	return estadisticaBuscada;
     }
     
-
+ 
     public void agregarEstadistica (int goles, int asistencias, int minutosJugados,Persona persona) throws Exception{
         
     	if(persona == null) throw new Exception("Error: La persona no puede ser null!");
@@ -59,6 +59,42 @@ public class Partido {
     	int id = 1;
     	if(!estadisticas.isEmpty()) id = estadisticas.get(estadisticas.size()-1).getIdEstadistica()+1;
         estadisticas.add(new Estadistica(id, goles, asistencias, minutosJugados,(Jugador)persona));
+    }
+    
+    public List<Estadistica> traerEstadisticas(int idInicio, int idFin){
+    	List<Estadistica> estadisticasPorEquipo = new ArrayList<Estadistica>();
+    	
+    	for(int i = idInicio; i < idFin;i++) {
+    		estadisticasPorEquipo.add(estadisticas.get(i));
+    	}
+    	
+    	return estadisticasPorEquipo;
+    }
+    
+    public int calcularGolesPorEquipoEnPartido(int idInicio, int idFin) {
+    	int goles = 0;
+    	List<Estadistica> estadisticasEquipo = traerEstadisticas(idInicio, idFin);
+    	
+    	for(Estadistica e: estadisticasEquipo) {
+    		goles += e.getGoles();
+    	}
+    	return goles;
+    }
+    
+    public Equipo determinarResultado() {
+    	Equipo equipo = null;
+    	int golesLocal = 0;
+    	int golesVisita = 0;
+    	golesLocal = calcularGolesPorEquipoEnPartido(0, 5);
+    	golesVisita = calcularGolesPorEquipoEnPartido(5, 10);
+
+    	if(golesLocal > golesVisita) {
+    		equipo = this.equipoLocal;
+    	}else if(golesVisita > golesLocal) {
+    		equipo = this.equipoVisita;
+    	}
+    	
+    	return equipo;
     }
 
     public int getIdPartido() {
