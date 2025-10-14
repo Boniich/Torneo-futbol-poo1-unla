@@ -50,9 +50,15 @@ public class Partido {
     }
     
 
-    public void agregarEstadistica ( Estadistica estadistica){
+    public void agregarEstadistica (int goles, int asistencias, int minutosJugados,Persona persona) throws Exception{
         
-        estadisticas.add(estadistica);
+    	if(persona == null) throw new Exception("Error: La persona no puede ser null!");
+    	if(!(persona instanceof Jugador)) throw new Exception("Error: La persona no es un jugador!");
+    	if(traerEstadistica(persona) != null) throw new Exception("Error: El jugador ya tiene una estadistica!");
+    	
+    	int id = 1;
+    	if(!estadisticas.isEmpty()) id = estadisticas.get(estadisticas.size()-1).getIdEstadistica()+1;
+        estadisticas.add(new Estadistica(id, goles, asistencias, minutosJugados,(Jugador)persona));
     }
 
     public int getIdPartido() {
