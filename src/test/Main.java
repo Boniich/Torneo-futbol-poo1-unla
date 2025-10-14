@@ -291,6 +291,10 @@ public class Main {
 		System.out.println("Puntos del equipo D: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQD"))));
 
 
+		System.out.println("Test 23: Generar tabla de posiciones");
+		System.out.println(sistema.traerTorneo(1).generarTablaPosiciones());
+		
+		
 	}
 	
 	
