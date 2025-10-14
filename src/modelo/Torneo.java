@@ -71,6 +71,30 @@ public class Torneo {
     	return partido;
     }
     
+    public List<Partido> traerPartidos(Equipo equipo) {
+    	List<Partido> partidosEquipo = new ArrayList<Partido>();
+    	for(Partido p : partidos) {
+    		if(p.getEquipoLocal().equals(equipo) || p.getEquipoVisita().equals(equipo)) {
+    			partidosEquipo.add(p);
+    		}
+    	}
+    	return partidosEquipo;
+    }
+    
+    public int calcularPuntosPorEquipo(Equipo equipo) {
+    	List<Partido> partidosEquipo = this.traerPartidos(equipo);
+    	int puntos = 0;
+    	
+    	for(Partido p: partidosEquipo) {
+    		if(p.determinarResultado() == null) {
+    			puntos+=1;
+    		}else if(p.determinarResultado().equals(equipo)) {
+    			puntos+=3;
+    		}
+    	}
+    	return puntos;
+    }
+    
     
     public void agregarPartido(LocalDate fecha, LocalTime hora, Equipo equipoLocal, 
     		Equipo equipoVisitante, String estadio) throws Exception { 
