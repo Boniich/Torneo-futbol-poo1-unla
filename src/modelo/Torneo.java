@@ -59,6 +59,18 @@ public class Torneo {
     	return partido;
     }
     
+    public Partido traerPartido(int id) {
+    	Partido partido = null;
+    	int index = 0;
+    	while(partido == null && index < partidos.size()) {
+    		if(partidos.get(index).getIdPartido() == id){
+    			partido = partidos.get(index);
+    		}
+    		index++;
+    	}
+    	return partido;
+    }
+    
     
     public void agregarPartido(LocalDate fecha, LocalTime hora, Equipo equipoLocal, 
     		Equipo equipoVisitante, String estadio) throws Exception { 
