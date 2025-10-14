@@ -8,6 +8,7 @@ import modelo.Equipo;
 import modelo.Estadistica;
 import modelo.Jugador;
 import modelo.Sistema;
+import modelo.Torneo;
 import modelo.enums.TipoEquipo;
 
 public class Main {
@@ -249,15 +250,14 @@ public class Main {
 		try {
 			System.out.println("Test 19: Agregamos estadisticas para torneo 1");
 
-
-			for (int idPartido = 1; idPartido < sistema.traerTorneo(1).getPartidos().size(); idPartido++) {
+			int ultimoId = sistema.traerTorneo(1).getPartidos().get(sistema.traerTorneo(1).getPartidos().size()-1).getIdPartido();
+			for (int idPartido = 1; idPartido <= ultimoId; idPartido++) {
 				generarEstadisticaPorJugador(sistema, 1, idPartido, TipoEquipo.LOCAL);
 				generarEstadisticaPorJugador(sistema, 1, idPartido, TipoEquipo.VISITA);
 
 			}
 
-			for (int idPartido = 1; idPartido < sistema.traerTorneo(1).getPartidos().size(); idPartido++) {
-
+			for (int idPartido = 1; idPartido <= ultimoId; idPartido++) {
 				System.out.println(sistema.traerTorneo(1).traerPartido(idPartido).getEstadisticas());
 			}
 
@@ -275,6 +275,21 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		System.out.println("Test 21: Traemos los partidos por equipo");
+		Torneo t = sistema.traerTorneo(1);
+		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQA"))));
+		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQB"))));
+		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQC"))));
+		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQD"))));
+		
+		
+		System.out.println("Test 22: Calcular puntos por equipos");
+		System.out.println("Puntos del equipo A: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQA"))));
+		System.out.println("Puntos del equipo B: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQB"))));
+		System.out.println("Puntos del equipo C: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQC"))));
+		System.out.println("Puntos del equipo D: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQD"))));
+
 
 	}
 	
