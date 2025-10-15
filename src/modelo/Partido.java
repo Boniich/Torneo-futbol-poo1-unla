@@ -156,7 +156,5 @@ public class Partido {
                 + equipoLocal.getNombre() + ", equipoVisita=" + equipoVisita.getNombre() + ", estadio=" + estadio + "]\n";
     }
 
-
-
-    
+ 
 }

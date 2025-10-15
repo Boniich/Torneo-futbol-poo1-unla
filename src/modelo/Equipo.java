@@ -92,8 +92,6 @@ public class Equipo {
 		return codigo;
 	}
 	
-	
-	
 	public void setCodigo(String codigo) throws Exception{
 		if(!esCodigoValido(codigo)) throw new Exception("Error: El codigo es incorrecto!");
 		

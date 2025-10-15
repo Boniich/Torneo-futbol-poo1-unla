@@ -28,7 +28,7 @@ public class Sistema {
 		}
 		return e;
 	}
-	//consultar si incluir los extremos
+
 	public List<Jugador> buscarJugadoresEntre(LocalDate desde, LocalDate hasta){
 			List<Jugador> j= new ArrayList<Jugador>();
 		if (!(desde == null || hasta==null)){
@@ -124,10 +124,7 @@ public class Sistema {
 		
 		if(persona == null) throw new Exception("Error: El entrenador no existe!");
 		if(!(persona instanceof Entrenador))  throw new Exception("Error: La persona no es un entrenador!");
-
-		//Tarea: Agregar if que contrala que un equipo no este repetido. lanzar excepcion
 		if (traerEquipo(codigo)!=null)throw new Exception("Error:El equipo ya existe.");
-			
 		
 		int id = 1;
 		if(!equipos.isEmpty()) id = equipos.get(equipos.size()-1).getIdEquipo()+1;
@@ -221,35 +218,6 @@ public class Sistema {
 
 	public void setTorneos(List<Torneo> torneos) {
 		this.torneos = torneos;
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Sistema other = (Sistema) obj;
-		if (personas == null) {
-			if (other.personas != null)
-				return false;
-		} else if (!personas.equals(other.personas))
-			return false;
-		if (equipos == null) {
-			if (other.equipos != null)
-				return false;
-		} else if (!equipos.equals(other.equipos))
-			return false;
-		if (torneos == null) {
-			if (other.torneos != null)
-				return false;
-		} else if (!torneos.equals(other.torneos))
-			return false;
-		return true;
 	}
 
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Entrenador extends Persona{
 	private String estrategiaFavorita;
-	//constructor
+
 	public Entrenador(int id, String apellido, String nombre, long dni, LocalDate fechaNacimiento,
 			String estrategiaFavorita) throws Exception {
 		super(id,nombre, apellido, dni, fechaNacimiento);
@@ -25,16 +25,4 @@ public class Entrenador extends Persona{
 	public String toString() {
 		return "Entrenador ["+super.toString()+ " estrategiaFavorita=" + estrategiaFavorita + "]\n";
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		return true;
-	}
-
-
 }
