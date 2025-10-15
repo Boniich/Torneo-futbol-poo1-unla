@@ -148,6 +148,21 @@ public class Torneo {
     	return total;
     	
     }
+    
+    public int calcularAsistenciasJugador(Persona persona) {
+    	int total = 0;
+    	Jugador jugador = (Jugador) persona;
+    	List<Partido> partidosJugador = this.traerPartidos(jugador.getEquipo());
+   	
+    	for(Partido p: partidosJugador) {
+    		total += p.traerEstadistica(persona).getAsistencias();
+    	}
+    	
+    	
+    	return total;
+    	
+    }
+    
  
     public int getIdTorneo() {
         return idTorneo;
