@@ -58,8 +58,9 @@ public class Jugador extends Persona {
 
 	@Override
 	public String toString() {
+		String nombreEquipo = equipo != null ? equipo.getNombre() : "null";
 		return "Jugador ["+super.toString() +" estatura=" + estatura + ", peso=" + peso + ", posicion=" + posicion + ", numeroCamiseta="
-				+ numeroCamiseta + ", equipo=" + equipo.getNombre() + "]\n";
+				+ numeroCamiseta + ", equipo=" + nombreEquipo + "]\n";
 	}
 
 
