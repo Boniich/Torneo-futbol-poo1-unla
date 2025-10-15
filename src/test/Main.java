@@ -289,6 +289,9 @@ public class Main {
 
 		System.out.println("Test 23: Generar tabla de posiciones");
 		System.out.println(sistema.traerTorneo(1).generarTablaPosiciones());
+		
+		System.out.println("Test 24: Total goles del jugador 11111111");
+		System.out.println("Goles totales: "+sistema.traerTorneo(1).calcularGolesJugador(sistema.traerPersona(11111111)));
 	
 		
 	}
