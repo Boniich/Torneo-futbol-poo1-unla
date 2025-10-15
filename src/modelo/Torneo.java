@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.clasesAuxiliares.Asistencia;
 import modelo.clasesAuxiliares.Goleador;
 import modelo.clasesAuxiliares.Posicion;
 
@@ -181,6 +182,26 @@ public class Torneo {
     	goleadores.sort((p1,p2)->Integer.compare(p2.getGoles(),p1.getGoles()));
     	
     	return goleadores;
+    	
+    }
+    
+    public List<Asistencia> generarTablaAsistidores(){
+    	List<Asistencia> asistidores = new ArrayList<Asistencia>();
+    	
+    	for(Equipo e: equiposParticipantes) {
+    		
+    		for(Jugador j: e.getJugadores()) {
+    			
+    			int asistencia = calcularAsistenciasJugador(j);
+    			if(asistencia > 0) asistidores.add(new Asistencia(j,asistencia));
+    		}
+    		
+    		
+    	}
+    	
+    	asistidores.sort((p1,p2)->Integer.compare(p2.getAsistencias(),p1.getAsistencias()));
+    	
+    	return asistidores;
     	
     }
     
