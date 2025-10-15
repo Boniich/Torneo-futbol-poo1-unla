@@ -299,6 +299,9 @@ public class Main {
 		System.out.println("Test 26: Generar tabla de goleadores");
 		System.out.println(sistema.traerTorneo(1).generarTablaGoleadores());
 		
+		System.out.println("Test 27: Generar tabla de asistidores");
+		System.out.println(sistema.traerTorneo(1).generarTablaAsistidores());
+		
 	}
 	
 	
