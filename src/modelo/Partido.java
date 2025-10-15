@@ -71,6 +71,7 @@ public class Partido {
     	return estadisticasPorEquipo;
     }
     
+    
     public int calcularGolesPorEquipoEnPartido(int idInicio, int idFin) {
     	int goles = 0;
     	List<Estadistica> estadisticasEquipo = traerEstadisticas(idInicio, idFin);
