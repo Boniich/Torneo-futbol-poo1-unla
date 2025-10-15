@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.clasesAuxiliares.Goleador;
 import modelo.clasesAuxiliares.Posicion;
 
 public class Torneo {
@@ -160,6 +161,26 @@ public class Torneo {
     	
     	
     	return total;
+    	
+    }
+    
+    public List<Goleador> generarTablaGoleadores(){
+    	List<Goleador> goleadores = new ArrayList<Goleador>();
+    	
+    	for(Equipo e: equiposParticipantes) {
+    		
+    		for(Jugador j: e.getJugadores()) {
+    			
+    			int goles = calcularGolesJugador(j);
+    			if(goles > 0) goleadores.add(new Goleador(j,goles));
+    		}
+    		
+    		
+    	}
+    	
+    	goleadores.sort((p1,p2)->Integer.compare(p2.getGoles(),p1.getGoles()));
+    	
+    	return goleadores;
     	
     }
     
