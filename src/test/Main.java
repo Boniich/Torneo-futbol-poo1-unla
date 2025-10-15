@@ -293,6 +293,9 @@ public class Main {
 		System.out.println("Test 24: Total goles del jugador 11111111");
 		System.out.println("Goles totales: "+sistema.traerTorneo(1).calcularGolesJugador(sistema.traerPersona(11111111)));
 	
+		System.out.println("Test 25: Total goles del jugador 22222222");
+		System.out.println("Asistencias totales: "+sistema.traerTorneo(1).calcularAsistenciasJugador(sistema.traerPersona(22222222)));
+	
 		
 	}
 	
