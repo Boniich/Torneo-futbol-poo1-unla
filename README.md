@@ -6,11 +6,11 @@ de la UNLa. Se desarrolla un sistema en Java que permita gestionar torneos de fu
 ## Integrantes
 
 Bonino Ezequiel.  
-Rodrigo
+Fernandez Rodrigo.  
 
 ## Casos de uso
 
-ultimo actualizacion: 
+ultimo actualizacion: 16-10-2025
 
 Se dejan a continuacion los casos de usos implementados en el proyecto:
 
@@ -36,6 +36,13 @@ Se dejan a continuacion los casos de usos implementados en el proyecto:
 ### 2- Generar los métodos eliminar solo si necesarios (física o lógica) elementos a todas las listas por regla de negocio.
 
 Hay algunos pero es necesarios mirarlos y quizas arreglarlos
+#### Sistema
+
+#### Torne
+
+#### Equipo
+
+#### Partido
 
 ### 3- Generar todos los métodos traer por atributo único (o id)
 
@@ -82,5 +89,28 @@ Hay algunos pero es necesarios mirarlos y quizas arreglarlos
 
 - Implementado en la clase Torneo.
 
+### 10. Cálculo de puntos de equipo: Implementar un método que calcule y retorne el total de puntos acumulados por un equipo, considerando 3 puntos por victoria y 1 por empate..
+
+- Implementado en la clase Torneo.
+
+### 11. Generación de tabla de posiciones: Desarrollar un método que retorne una lista de (Posicion, no se persiste es solo para generar reporte) que contenga equipo y puntaje, ordenada de mayor a menor puntaje (utilizando ordenamiento de listas nativo o desarrollando el algoritmo de algún método de ordenamiento)..
+
+- Implementado en la clase Torneo.
+
+### 12. . Cálculo de goles por jugador: Escribir un método que, dado un objeto Jugador, devuelva el total de goles que ha logrado en el torneo..
+
+- Implementado en la clase Torneo.
+
+### 13. Cálculo de asistencias por jugador: Escribir un método que, dado un objeto Jugador, devuelva el total de asistencias que ha logrado en el torneo.
+
+- Implementado en la clase Torneo.
+
+### 14. Generación de tabla de goleadores: Crear un método que retorne una lista de (Goleador, no se persiste es solo para generar reporte) con el jugador y los goles, ordenada de mayor a menor (utilizando ordenamiento de listas nativo o desarrollando el algoritmo de algún método de ordenamiento)..
+
+- Implementado en la clase Torneo.
+
+### 15. Generación de tabla de asistidores: Implementar un método que retorne una lista de (Asistencia, no se persiste es solo para generar reporte) con el jugador y sus asistencias, ordenada de mayor a menor (utilizando ordenamiento de listas nativo o desarrollando el algoritmo de algún método de ordenamiento).
+
+- Implementado en la clase Torneo.
 
 
