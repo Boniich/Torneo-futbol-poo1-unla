@@ -194,7 +194,36 @@ public class Sistema {
 		}
 		return entrenadores;
 	}
-	
+	//eliminar----------------------
+	 public Equipo traerEquipoDeEntrenador(Persona persona){
+        Equipo equipo = null;
+        int i=0;
+        boolean encontrado= false;
+        while (i<equipos.size() && !encontrado ){
+            if(persona instanceof Entrenador && equipos.get(i) != null && equipos.get(i).getEntrenador().equals((Entrenador) persona)){
+                encontrado=true;
+                equipo = equipos.get(i);
+            }
+
+            i++;
+        }
+        return equipo;
+    }
+
+    public void eliminarPersona(Persona persona) throws Exception {
+     if(!persona.isActivo()) throw new Exception("Error: La persona ya fue dada de baja");
+     if(persona instanceof Jugador){
+         if(((Jugador)persona).getEquipo() != null){
+             ((Jugador)persona).getEquipo().eliminarJugador(persona);
+         }
+     }else{
+         Equipo equipo=traerEquipoDeEntrenador(persona);
+         if(equipo != null) {
+             equipo.eliminarEntrenador();
+         }
+     }
+        persona.setActivo(false);
+    }
 	
 	public List<Persona> getPersonas() {
 		return personas;

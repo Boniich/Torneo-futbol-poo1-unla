@@ -60,13 +60,16 @@ public class Equipo {
 		return jugadorBuscado;
 	}
 	
-/*
-	public void eliminarJugador(long dni)throws Exception{
-		Jugador jugador= this.traerJugador(dni);
-		if(jugador ==null) throw new Exception("Error: No existe el jugador!");
-			jugadores.remove(jugador);
+	public void eliminarJugador(Persona persona)throws Exception{
+		if(persona ==null) throw new Exception("Error: La persona no puede ser null");
+		Jugador jugador= (Jugador) persona;
+        jugador.setEquipo(null);
+        jugadores.remove(jugador);
+
 	}
-	*/
+    public  void eliminarEntrenador()throws Exception{
+        this.setEntrenador(null);
+    }
 	
 	private boolean esCodigoValido(String codigo){
 		

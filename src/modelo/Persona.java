@@ -9,6 +9,7 @@ public abstract class Persona {
 	protected String apellido;
 	protected long dni;
 	protected LocalDate fechaNacimiento;
+	protected boolean isActivo;
 	
 	public Persona(int id,String nombre, String apellido, long dni, LocalDate fechaNacimiento) throws Exception {
 		this.id = id;
@@ -16,6 +17,7 @@ public abstract class Persona {
 		this.setApellido(apellido);
 		this.setDni(dni);
 		this.setFechaNacimiento(fechaNacimiento);
+		this.isActivo=true;
 	}
 	
 	
@@ -69,6 +71,16 @@ public abstract class Persona {
 
 	public boolean equals(Persona persona) {
 		return this.id == persona.getId() && this.dni == persona.getDni();
+	}
+
+
+	public boolean isActivo() {
+		return isActivo;
+	}
+
+
+	public void setActivo(boolean isActivo) {
+		this.isActivo = isActivo;
 	}
 
 }

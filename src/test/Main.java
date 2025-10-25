@@ -343,6 +343,9 @@ public class Main {
 			goles = 0;
 			asistencias = 0;
 		}
+		//Test Eliminar----------------------------
+
+		
 	}
 
 }
