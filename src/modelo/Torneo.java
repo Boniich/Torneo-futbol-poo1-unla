@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.clasesAuxiliares.Asistencia;
+import modelo.clasesAuxiliares.Ganador;
 import modelo.clasesAuxiliares.Goleador;
 import modelo.clasesAuxiliares.Posicion;
 
@@ -203,6 +204,24 @@ public class Torneo {
     	
     	return asistidores;
     	
+    }
+    
+    public List<Ganador> traerGanadoresPorFecha(LocalDate inicioFecha, LocalDate finFecha){
+    	List<Ganador> ganadores = new ArrayList<Ganador>();
+    	
+    	for(Partido p: partidos) {
+    		if(p.getFecha().equals(inicioFecha) || p.getFecha().equals(finFecha) ||
+    				(p.getFecha().isAfter(inicioFecha) && p.getFecha().isBefore(finFecha))) {
+    			Equipo equipo = p.determinarResultado();
+        		if(equipo != null) {
+        			int goles = p.calcularGolesPorEquipoEnPartido(equipo);
+        			ganadores.add(new Ganador(p.getFecha(), equipo, goles));
+        		}
+    		}
+
+    	}
+    	
+    	return ganadores;
     }
     
  
