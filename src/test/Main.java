@@ -302,6 +302,10 @@ public class Main {
 		System.out.println("Test 27: Generar tabla de asistidores");
 		System.out.println(sistema.traerTorneo(1).generarTablaAsistidores());
 		
+		
+		System.out.println("Test 28: Equipos ganadores por fecha de un torneo");
+		System.out.println(sistema.traerTorneo(1).traerGanadoresPorFecha(LocalDate.of(2025, 6, 4), LocalDate.of(2025, 6, 8)));
+		
 	}
 	
 	
