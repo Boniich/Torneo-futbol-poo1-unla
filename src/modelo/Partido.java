@@ -71,10 +71,30 @@ public class Partido {
     	return estadisticasPorEquipo;
     }
     
+    public List<Estadistica> traerEstadisticas(Equipo equipo){
+    	List<Estadistica> estadisticasPorEquipo = new ArrayList<Estadistica>();
+    	
+    	for(Estadistica e : estadisticas) {
+    		if(e.getJugador().getEquipo().equals(equipo)) estadisticasPorEquipo.add(e);
+    	}
+    	
+    	return estadisticasPorEquipo;
+    }
+    
     
     public int calcularGolesPorEquipoEnPartido(int idInicio, int idFin) {
     	int goles = 0;
     	List<Estadistica> estadisticasEquipo = traerEstadisticas(idInicio, idFin);
+    	
+    	for(Estadistica e: estadisticasEquipo) {
+    		goles += e.getGoles();
+    	}
+    	return goles;
+    }
+    
+    public int calcularGolesPorEquipoEnPartido(Equipo equipo) {
+    	int goles = 0;
+    	List<Estadistica> estadisticasEquipo = traerEstadisticas(equipo);
     	
     	for(Estadistica e: estadisticasEquipo) {
     		goles += e.getGoles();
