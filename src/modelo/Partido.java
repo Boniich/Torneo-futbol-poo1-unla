@@ -106,8 +106,10 @@ public class Partido {
     	Equipo equipo = null;
     	int golesLocal = 0;
     	int golesVisita = 0;
-    	golesLocal = calcularGolesPorEquipoEnPartido(0, 5);
-    	golesVisita = calcularGolesPorEquipoEnPartido(5, 10);
+    	//golesLocal = calcularGolesPorEquipoEnPartido(0, 5);
+    	//golesVisita = calcularGolesPorEquipoEnPartido(5, 10);
+    	golesLocal = calcularGolesPorEquipoEnPartido(equipoLocal);
+    	golesVisita = calcularGolesPorEquipoEnPartido(equipoVisita);
 
     	if(golesLocal > golesVisita) {
     		equipo = this.equipoLocal;
