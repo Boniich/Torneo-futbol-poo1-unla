@@ -61,16 +61,6 @@ public class Partido {
         estadisticas.add(new Estadistica(id, goles, asistencias, minutosJugados,(Jugador)persona));
     }
     
-    public List<Estadistica> traerEstadisticas(int idInicio, int idFin){
-    	List<Estadistica> estadisticasPorEquipo = new ArrayList<Estadistica>();
-    	
-    	for(int i = idInicio; i < idFin;i++) {
-    		estadisticasPorEquipo.add(estadisticas.get(i));
-    	}
-    	
-    	return estadisticasPorEquipo;
-    }
-    
     public List<Estadistica> traerEstadisticas(Equipo equipo){
     	List<Estadistica> estadisticasPorEquipo = new ArrayList<Estadistica>();
     	
@@ -79,17 +69,6 @@ public class Partido {
     	}
     	
     	return estadisticasPorEquipo;
-    }
-    
-    
-    public int calcularGolesPorEquipoEnPartido(int idInicio, int idFin) {
-    	int goles = 0;
-    	List<Estadistica> estadisticasEquipo = traerEstadisticas(idInicio, idFin);
-    	
-    	for(Estadistica e: estadisticasEquipo) {
-    		goles += e.getGoles();
-    	}
-    	return goles;
     }
     
     public int calcularGolesPorEquipoEnPartido(Equipo equipo) {
@@ -106,8 +85,6 @@ public class Partido {
     	Equipo equipo = null;
     	int golesLocal = 0;
     	int golesVisita = 0;
-    	//golesLocal = calcularGolesPorEquipoEnPartido(0, 5);
-    	//golesVisita = calcularGolesPorEquipoEnPartido(5, 10);
     	golesLocal = calcularGolesPorEquipoEnPartido(equipoLocal);
     	golesVisita = calcularGolesPorEquipoEnPartido(equipoVisita);
 
