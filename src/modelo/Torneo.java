@@ -45,6 +45,7 @@ public class Torneo {
     
     public void agregarEquipo(Equipo equipo) throws Exception {	
     	if(equipo == null) throw new Exception("Error: Equipo es null!");
+		if (equipo.getJugadores().size() < 5)  throw new Exception("Error: El equipo " + equipo.getNombre() + " no puede unirse al torneo. Debe tener al menos 5 jugadores (actual: " + equipo.getJugadores().size() + ").");
     	if(traerEquipo(equipo) != null) throw new Exception("Error: El equipo ya existe en el torneo!");             
         equiposParticipantes.add(equipo);
     }

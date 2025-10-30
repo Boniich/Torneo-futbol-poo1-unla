@@ -214,6 +214,7 @@ public class Sistema {
      if(!persona.isActivo()) throw new Exception("Error: La persona ya fue dada de baja");
      if(persona instanceof Jugador){
          if(((Jugador)persona).getEquipo() != null){
+			if (((Jugador)persona).getEquipo().getJugadores().size()-1 < 5)throw new Exception("Error: El equipo no puede tener menos de 5 jugadores, Eliminacion cancelada.");
              ((Jugador)persona).getEquipo().eliminarJugador(persona);
          }
      }else{

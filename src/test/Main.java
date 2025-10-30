@@ -105,9 +105,8 @@ public class Main {
 		}
 
 		try {
-			System.out.println("\nTest 7: Intentamos agregar un equipo repetido (Completar)");
+			System.out.println("\nTest 7: Intentamos agregar un equipo repetido ");
 			sistema.agregarEquipo("Equipo A", "EQA",LocalDate.of(2024, 10,7),sistema.traerPersona(23232323));
-			System.out.println(sistema.getEquipos());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -306,7 +305,14 @@ public class Main {
 		System.out.println("\nTest 28: Equipos ganadores por fecha de un torneo");
 		System.out.println(sistema.traerTorneo(1).traerGanadoresPorFecha(LocalDate.of(2025, 6, 4), LocalDate.of(2025, 6, 8)));
 		// test Eliminar-----------------------------------------------------
-		System.out.println("Imprimimos el equipo al que le vamos a borrar un jugador y el entrenador:  " + (sistema.traerEquipo("EQA").toString()));
+		System.out.println("Antes de eliminar jugador y entrenador agregamos un jugador mas al equipo, para verificar la validacion de menos de 5 jugadores de equipos en el torneo: ");
+		try {
+			sistema.agregarJugador("Miguel", "Merentiel", 31313131, LocalDate.of(1996, 2, 24), 1.76, 70, "Delantero", 16);
+			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(31313131));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		//test eliminar jugador
 		try {
@@ -329,45 +335,60 @@ public class Main {
 			System.out.println(" Intentamos eliminarlo de nuevo:");
 			sistema.eliminarPersona(sistema.traerPersona(23232323));
 
-} catch (Exception e) {
-	System.out.println(e.getMessage());
-}
-System.out.println("Imprimimos el equipo (No deberia estar messi ni scalonni): " + (sistema.traerEquipo("EQA").toString()));
-//---
-//test eliminar estadistica
-try {
-	System.out.println("\nTest 31: Eliminamos estadistica del partido 1: ");
-	System.out.println("Buscamos la estadistica con id=1  ");
-	System.out.println(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
-	sistema.traerTorneo(1).traerPartido(1).eliminarEstadistica(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
-	System.out.println("y la eliminamos: ");
-	System.out.println(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Imprimimos el equipo (No deberia estar messi ni scalonni): " + (sistema.traerEquipo("EQA").toString()));
+		//---
+		System.out.println("\nTest 31: Creamos un nuevo equipo e intentamos agregarlo al torneo");
+		try {
+			sistema.agregarEquipo("EquipoAUX", "AUX", LocalDate.now(), sistema.traerPersona(23232323));
+			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo("AUX"));
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+		System.out.println("\nTest 32: Intentamos borrar otro jugador del equipo 1, deberia tirar error ya que no se permiten equipos con menos de 5 jugadores :");
+		try {
+			sistema.eliminarPersona(sistema.traerPersona(31313131));
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+		//test eliminar estadistica
+		try {
+			System.out.println("\nTest 33: Eliminamos estadistica del partido 1: ");
+			System.out.println("Buscamos la estadistica con id=1  ");
+			System.out.println(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
+			sistema.traerTorneo(1).traerPartido(1).eliminarEstadistica(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
+			System.out.println("y la eliminamos: ");
+			System.out.println(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
 
-} catch (Exception e) {
-	System.out.println(e.getMessage());
-}
-//test eliminar torneo
-try {
-	System.out.println("\nTest 32: Eliminamos partido 1 del torneo 1: ");
-	System.out.println("Cantidad de partidos en torneo 1: " + sistema.traerTorneo(1).getPartidos().size());
-	System.out.println("Eliminamos el primer partido:");
-	sistema.traerTorneo(1).eliminarPartido(1); 
-	System.out.println("Partidos restantes en Torneo 1: " + sistema.traerTorneo(1).getPartidos().size());
-} catch (Exception e) {
-	System.out.println(e.getMessage());
-}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		//test eliminar torneo
+		try {
+			System.out.println("\nTest 34: Eliminamos partido 1 del torneo 1: ");
+			System.out.println("Cantidad de partidos en torneo 1: " + sistema.traerTorneo(1).getPartidos().size());
+			System.out.println("Eliminamos el primer partido:");
+			sistema.traerTorneo(1).eliminarPartido(1); 
+			System.out.println("Partidos restantes en Torneo 1: " + sistema.traerTorneo(1).getPartidos().size());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
-try {
-	System.out.println("\nTest 33: Eliminar Torneo 1 del Sistema:");
-	sistema.eliminarTorneo(1);
-	System.out.println("Torneos restantes en Sistema: " + sistema.getTorneos().size());
-} catch (Exception e) {
-	System.out.println(e.getMessage());
-}
+		try {
+			System.out.println("\nTest 35: Eliminar Torneo 1 del Sistema:");
+			sistema.eliminarTorneo(1);
+			System.out.println("Torneos restantes en Sistema: " + sistema.getTorneos().size());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
-System.out.println("\nTest 34: Baja fisica total del sistema:");
-sistema.vaciarSistema();
-System.out.println(sistema.toString());
+		System.out.println("\nTest 36: Baja fisica total del sistema:");
+		sistema.vaciarSistema();
+		System.out.println(sistema.toString());
 	}
 	
 	
