@@ -35,14 +35,7 @@ Se dejan a continuacion los casos de usos implementados en el proyecto:
 
 ### 2- Generar los métodos eliminar solo si necesarios (física o lógica) elementos a todas las listas por regla de negocio.
 
-Hay algunos pero es necesarios mirarlos y quizas arreglarlos
-#### Sistema
-
-#### Torne
-
-#### Equipo
-
-#### Partido
+Realizados. Baja logica para las personas. Baja fisica para el resto.
 
 ### 3- Generar todos los métodos traer por atributo único (o id)
 
@@ -65,7 +58,10 @@ Hay algunos pero es necesarios mirarlos y quizas arreglarlos
 2- traerEstadistica(persona)
 
 
-### 4- TODO
+### 4- Traer para un torneo y un número de fecha, la lista de los equipos ganadores utilizando una clase (Ganador, no se persiste es solo para generar reporte) con fecha, el equipo ganador, cantidad de goles
+
+- Modificado para funcionar con dos Localdate como inicio fecha y fin fecha. 
+- Implementado en la clase Torneo
 
 
 ### 5- Búsqueda de entrenadores: Crear un método que, dada una táctica preferida, devuelva una lista de todos los entrenadores que la utilicen.

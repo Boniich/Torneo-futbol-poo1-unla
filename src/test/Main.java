@@ -430,10 +430,6 @@ public class Main {
 			goles = 0;
 			asistencias = 0;
 		}
-		//Test Eliminar----------------------------
-		// Suponiendo que el Torneo 1, Partido 1 y las Estadísticas existen.
-
-		
 	}
 
 }
