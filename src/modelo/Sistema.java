@@ -224,6 +224,22 @@ public class Sistema {
      }
         persona.setActivo(false);
     }
+
+	public void eliminarTorneo(int idTorneo) throws Exception {
+		Torneo torneo = traerTorneo(idTorneo);
+	
+		if (torneo == null)  throw new Exception("Error: Torneo no encontrado.");
+	
+		torneos.remove(torneo);
+	}
+
+	public void vaciarSistema() {
+
+		torneos.clear();
+		equipos.clear(); 
+		personas.clear(); 
+		
+	}
 	
 	public List<Persona> getPersonas() {
 		return personas;
@@ -249,4 +265,9 @@ public class Sistema {
 		this.torneos = torneos;
 	}
 
+	@Override
+	public String toString() {
+		return "Sistema [personas=" + personas + ", equipos=" + equipos + ", torneos=" + torneos + "]";
+	}
+	
 }

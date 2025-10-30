@@ -61,6 +61,13 @@ public class Partido {
         estadisticas.add(new Estadistica(id, goles, asistencias, minutosJugados,(Jugador)persona));
     }
     
+    public void eliminarEstadistica(Estadistica estadistica) throws Exception {
+    if (estadistica == null)  throw new Exception("Error: La estadistica no puede ser null.");
+    if (!estadisticas.contains(estadistica)) throw new Exception("Error: La estadistica no se encuentra en el partido.");
+    
+    estadisticas.remove(estadistica);
+    }
+    
     public List<Estadistica> traerEstadisticas(Equipo equipo){
     	List<Estadistica> estadisticasPorEquipo = new ArrayList<Estadistica>();
     	

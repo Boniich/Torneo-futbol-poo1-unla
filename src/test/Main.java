@@ -7,6 +7,7 @@ import java.util.Random;
 import modelo.Equipo;
 import modelo.Estadistica;
 import modelo.Jugador;
+import modelo.Persona;
 import modelo.Sistema;
 import modelo.Torneo;
 import modelo.enums.TipoEquipo;
@@ -18,7 +19,7 @@ public class Main {
 		Sistema sistema = new Sistema();
 
 		try {
-			System.out.println("Test 1: Agregamos jugadores con exito");
+			System.out.println("\nTest 1: Agregamos jugadores con exito");
 			sistema.agregarJugador("Lionel", "Messi", 11111111, LocalDate.of(1987, 6, 24), 1.70, 67, "Delantero", 10);
 			sistema.agregarJugador("Rodrigo", "De Paul", 22222222, LocalDate.of(1994, 5, 24), 1.80, 72, "Mediocampista",
 					7);
@@ -56,7 +57,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 2: Intentamos agregar un jugador dos veces (mismo dni)");
+			System.out.println("\nTest 2: Intentamos agregar un jugador dos veces (mismo dni)");
 			sistema.agregarJugador("Lionel", "Messi", 11111111, LocalDate.of(1987, 6, 24), 1.70, 67, "Delantero", 10);
 			System.out.println(sistema.getPersonas());
 		} catch (Exception e) {
@@ -64,7 +65,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 3: Intentamos agregar un jugador menor de edad");
+			System.out.println("\nTest 3: Intentamos agregar un jugador menor de edad");
 			sistema.agregarJugador("Juancito", "hernandez", 31659781, LocalDate.of(2018, 3, 5), 1.80, 80, "Arquero", 1);
 			System.out.println(sistema.getPersonas());
 		} catch (Exception e) {
@@ -72,7 +73,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 4: Agregamos entrenadores");
+			System.out.println("\nTest 4: Agregamos entrenadores");
 			sistema.agregarEntrenador("Lionel", "Scaloni", 23232323, LocalDate.of(1978, 5, 16), "Estrategia ofensiva");
 			sistema.agregarEntrenador("Marcelo", "Gallardo", 24242424, LocalDate.of(1976, 1, 18),
 					"Estrategia ofensiva");
@@ -85,7 +86,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 5: Agregamos Equipos");
+			System.out.println("\nTest 5: Agregamos Equipos");
 			sistema.agregarEquipo("Equipo A", "EQA", LocalDate.of(2024, 10, 7), sistema.traerPersona(23232323));
 			sistema.agregarEquipo("Equipo B", "EQB", LocalDate.of(2024, 10, 8), sistema.traerPersona(24242424));
 			sistema.agregarEquipo("Equipo C", "EQC", LocalDate.of(2023, 10, 10), sistema.traerPersona(25252525));
@@ -96,7 +97,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 6: Intentamos agregar un equipo con codigo incorrecto");
+			System.out.println("\nTest 6: Intentamos agregar un equipo con codigo incorrecto");
 			sistema.agregarEquipo("Equipo A", "EQAIII", LocalDate.of(2024, 10, 7), sistema.traerPersona(23232323));
 			System.out.println(sistema.getEquipos());
 		} catch (Exception e) {
@@ -104,16 +105,15 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 7: Intentamos agregar un equipo repetido (Completar)");
-			// sistema.agregarEquipo("Equipo A", "EQA",LocalDate.of(2024, 10,
-			// 7),sistema.traerPersona(23232323));
-			// System.out.println(sistema.getEquipos());
+			System.out.println("\nTest 7: Intentamos agregar un equipo repetido (Completar)");
+			sistema.agregarEquipo("Equipo A", "EQA",LocalDate.of(2024, 10,7),sistema.traerPersona(23232323));
+			System.out.println(sistema.getEquipos());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			System.out.println("Test 8: Agregamos 5 jugadores para cada equipo");
+			System.out.println("\nTest 8: Agregamos 5 jugadores para cada equipo");
 
 			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(11111111));
 			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(22222222));
@@ -149,20 +149,20 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 9: intento agregar jugadores repetidos:");
+			System.out.println("\nTest 9: intento agregar jugadores repetidos:");
 			sistema.traerEquipo("EQA").agregarJugador(sistema.traerPersona(11111111));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}	
 		try {
-			System.out.println("Test 10: intento agregar un jugador que ya esta en otro equipo:");
+			System.out.println("\nTest 10: intento agregar un jugador que ya esta en otro equipo:");
 			sistema.traerEquipo("EQC").agregarJugador(sistema.traerPersona(66666666));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			System.out.println("Test 11: Agregamos torneos");
+			System.out.println("\nTest 11: Agregamos torneos");
 			sistema.agregarTorneo("Torneo 3 estrellas", "Invierno", LocalDate.of(2025, 5, 25),
 					LocalDate.of(2025, 7, 2));
 			System.out.println(sistema.getTorneos());
@@ -171,7 +171,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 12: Intentamos agregar un torneo con la misma fecha de inicio y fin");
+			System.out.println("\nTest 12: Intentamos agregar un torneo con la misma fecha de inicio y fin");
 			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 7, 25), LocalDate.of(2025, 7, 25));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
@@ -179,21 +179,21 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 13: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
+			System.out.println("\nTest 13: Intentamos agregar un torneo con una fecha de inicio posterior a la de fin");
 			sistema.agregarTorneo("Torneo la bocha", "Invierno", LocalDate.of(2025, 9, 25), LocalDate.of(2025, 7, 25));
 			System.out.println(sistema.getTorneos());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("Test 14: Calculamos la altura promedio de todos los equipos");
+		System.out.println("\nTest 14: Calculamos la altura promedio de todos los equipos");
 		System.out.println("Equipo A " + String.format("%.2f", sistema.traerEquipo(1).calcularAlturaPromedio()));
 		System.out.println("Equipo B " + String.format("%.2f", sistema.traerEquipo(2).calcularAlturaPromedio()));
 		System.out.println("Equipo C " + String.format("%.2f", sistema.traerEquipo(3).calcularAlturaPromedio()));
 		System.out.println("Equipo D " + String.format("%.2f", sistema.traerEquipo(4).calcularAlturaPromedio()));
 
 		try {
-			System.out.println("Test 15: Agregamos los equipos al torneo");
+			System.out.println("\nTest 15: Agregamos los equipos al torneo");
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(2));
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(3));
@@ -204,7 +204,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 16: Intentamos agregar un equipo repetido");
+			System.out.println("\nTest 16: Intentamos agregar un equipo repetido");
 			sistema.traerTorneo(1).agregarEquipo(sistema.traerEquipo(1));
 			System.out.println(sistema.traerTorneo(1).getEquiposParticipantes());
 		} catch (Exception e) {
@@ -212,7 +212,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 17: Calculamos el equipo con mayor altura del torneo");
+			System.out.println("\nTest 17: Calculamos el equipo con mayor altura del torneo");
 			sistema.traerTorneo(1).traerEquipoConMayorAltura();
 			System.out.println(sistema.traerTorneo(1).traerEquipoConMayorAltura());
 		} catch (Exception e) {
@@ -220,7 +220,7 @@ public class Main {
 		}
 
 		try {
-			System.out.println("Test 18: Agregamos partidos al torneo 1");
+			System.out.println("\nTest 18: Agregamos partidos al torneo 1");
 			sistema.traerTorneo(1).agregarPartido(LocalDate.of(2025, 6, 5), LocalTime.of(10, 0),
 					sistema.traerEquipo("EQA"), sistema.traerEquipo("EQB"), "Estadio 1");
 
@@ -244,7 +244,7 @@ public class Main {
 		}
 		
 		try {
-			System.out.println("Test 19: Agregamos estadisticas para torneo 1");
+			System.out.println("\nTest 19: Agregamos estadisticas para torneo 1");
 
 			int ultimoId = sistema.traerTorneo(1).getPartidos().get(sistema.traerTorneo(1).getPartidos().size()-1).getIdPartido();
 			for (int idPartido = 1; idPartido <= ultimoId; idPartido++) {
@@ -262,7 +262,7 @@ public class Main {
 		}
 		
 		try {
-			System.out.println("Test 20: Intentamos agregar una estadistica para un jugador dos veces");
+			System.out.println("\nTest 20: Intentamos agregar una estadistica para un jugador dos veces");
 			sistema.traerTorneo(1).traerPartido(1).agregarEstadistica(1, 0, 30,
 					sistema.traerTorneo(1).traerPartido(1).getEquipoLocal().getJugadores()
 					.get(0));
@@ -272,7 +272,7 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("Test 21: Traemos los partidos por equipo");
+		System.out.println("\nTest 21: Traemos los partidos por equipo");
 		Torneo t = sistema.traerTorneo(1);
 		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQA"))));
 		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQB"))));
@@ -280,32 +280,94 @@ public class Main {
 		System.out.println(t.traerPartidos(t.traerEquipo(sistema.traerEquipo("EQD"))));
 		
 		
-		System.out.println("Test 22: Calcular puntos por equipos");
+		System.out.println("\nTest 22: Calcular puntos por equipos");
 		System.out.println("Puntos del equipo A: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQA"))));
 		System.out.println("Puntos del equipo B: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQB"))));
 		System.out.println("Puntos del equipo C: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQC"))));
 		System.out.println("Puntos del equipo D: "+t.calcularPuntosPorEquipo(t.traerEquipo(sistema.traerEquipo("EQD"))));
 
 
-		System.out.println("Test 23: Generar tabla de posiciones");
+		System.out.println("\nTest 23: Generar tabla de posiciones");
 		System.out.println(sistema.traerTorneo(1).generarTablaPosiciones());
 		
-		System.out.println("Test 24: Total goles del jugador 11111111");
+		System.out.println("\nTest 24: Total goles del jugador 11111111");
 		System.out.println("Goles totales: "+sistema.traerTorneo(1).calcularGolesJugador(sistema.traerPersona(11111111)));
 	
-		System.out.println("Test 25: Total goles del jugador 22222222");
+		System.out.println("\nTest 25: Total goles del jugador 22222222");
 		System.out.println("Asistencias totales: "+sistema.traerTorneo(1).calcularAsistenciasJugador(sistema.traerPersona(22222222)));
 	
-		System.out.println("Test 26: Generar tabla de goleadores");
+		System.out.println("\nTest 26: Generar tabla de goleadores");
 		System.out.println(sistema.traerTorneo(1).generarTablaGoleadores());
 		
-		System.out.println("Test 27: Generar tabla de asistidores");
+		System.out.println("\nTest 27: Generar tabla de asistidores");
 		System.out.println(sistema.traerTorneo(1).generarTablaAsistidores());
 		
 		
-		System.out.println("Test 28: Equipos ganadores por fecha de un torneo");
+		System.out.println("\nTest 28: Equipos ganadores por fecha de un torneo");
 		System.out.println(sistema.traerTorneo(1).traerGanadoresPorFecha(LocalDate.of(2025, 6, 4), LocalDate.of(2025, 6, 8)));
-		
+		// test Eliminar-----------------------------------------------------
+		System.out.println("Imprimimos el equipo al que le vamos a borrar un jugador y el entrenador:  " + (sistema.traerEquipo("EQA").toString()));
+
+		//test eliminar jugador
+		try {
+			System.out.println("\nTest 29: Eliminación logica de jugador : L. Messi ");
+			//Eliminamos el jugador, baja logica del sistema y baja fisica del equipo
+			sistema.eliminarPersona(sistema.traerPersona(11111111));
+			System.out.println(sistema.traerPersona(11111111).toString());
+			//intento darlo de baja de nuevo
+			System.out.println("Intentamos eliminarlo de nuevo:  ");
+			sistema.eliminarPersona(sistema.traerPersona(11111111));
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		//test eliminar entrenador
+		try {
+			System.out.println("\nTest 30: Eliminación logica de entrenador : L. Scaloni ");
+			sistema.eliminarPersona(sistema.traerPersona(23232323));
+			System.out.println(sistema.traerPersona(23232323).toString());
+			System.out.println(" Intentamos eliminarlo de nuevo:");
+			sistema.eliminarPersona(sistema.traerPersona(23232323));
+
+} catch (Exception e) {
+	System.out.println(e.getMessage());
+}
+System.out.println("Imprimimos el equipo (No deberia estar messi ni scalonni): " + (sistema.traerEquipo("EQA").toString()));
+//---
+//test eliminar estadistica
+try {
+	System.out.println("\nTest 31: Eliminamos estadistica del partido 1: ");
+	System.out.println("Buscamos la estadistica con id=1  ");
+	System.out.println(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
+	sistema.traerTorneo(1).traerPartido(1).eliminarEstadistica(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
+	System.out.println("y la eliminamos: ");
+	System.out.println(sistema.traerTorneo(1).traerPartido(1).traerEstadistica(1));
+
+} catch (Exception e) {
+	System.out.println(e.getMessage());
+}
+//test eliminar torneo
+try {
+	System.out.println("\nTest 32: Eliminamos partido 1 del torneo 1: ");
+	System.out.println("Cantidad de partidos en torneo 1: " + sistema.traerTorneo(1).getPartidos().size());
+	System.out.println("Eliminamos el primer partido:");
+	sistema.traerTorneo(1).eliminarPartido(1); 
+	System.out.println("Partidos restantes en Torneo 1: " + sistema.traerTorneo(1).getPartidos().size());
+} catch (Exception e) {
+	System.out.println(e.getMessage());
+}
+
+try {
+	System.out.println("\nTest 33: Eliminar Torneo 1 del Sistema:");
+	sistema.eliminarTorneo(1);
+	System.out.println("Torneos restantes en Sistema: " + sistema.getTorneos().size());
+} catch (Exception e) {
+	System.out.println(e.getMessage());
+}
+
+System.out.println("\nTest 34: Baja fisica total del sistema:");
+sistema.vaciarSistema();
+System.out.println(sistema.toString());
 	}
 	
 	
@@ -348,6 +410,7 @@ public class Main {
 			asistencias = 0;
 		}
 		//Test Eliminar----------------------------
+		// Suponiendo que el Torneo 1, Partido 1 y las Estadísticas existen.
 
 		
 	}

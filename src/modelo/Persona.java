@@ -66,7 +66,7 @@ public abstract class Persona {
 	@Override
 	public String toString() {
 		return "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-				+ ", fechaNacimiento=" + fechaNacimiento;
+				+ ", fechaNacimiento=" + fechaNacimiento+" activo?= "+isActivo;
 	}
 
 	public boolean equals(Persona persona) {
